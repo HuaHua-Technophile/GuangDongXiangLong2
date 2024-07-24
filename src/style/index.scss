@@ -1,0 +1,57 @@
+//修改第三方样式库-----------------
+@use "./primaryBootStrap.scss";
+
+// 定义一个包含字体信息的列表，每项包含字体名和文件名
+$fonts: (
+  ("QinLiuLiShu", "QinLiuLiShu"),
+  ("Cinzel-Regular", "Cinzel-Regular"),
+  ("MiSansTC-Light", "MiSansTC-Light")
+);
+
+// 使用@each指令遍历列表
+@each $font, $filename in $fonts {
+  @font-face {
+    font-family: $font;
+    src: url("/fontmin/#{$filename}.woff2");
+  }
+}
+
+:root {
+  --content-max-width: 80rem;
+}
+
+.el-tooltip__trigger:focus-visible {
+  outline: unset;
+} //去除下拉菜单聚焦时外边框
+
+.cursor-pointer {
+  cursor: pointer;
+  // 鼠标指针
+}
+
+$transition-times: 500, 750, 1000, 1250, 1500, 1750, 2000; // 定义一个包含过渡时间（以毫秒为单位）的数组
+
+@each $time in $transition-times {
+  .transition#{$time} {
+    transition: all #{$time}ms;
+  }
+} // 使用@each指令遍历数组
+
+// 定义起始值、结束值和步长
+$start-size: 1; // fs-6 对应 1rem
+$end-size: 0.6;
+$step: 0.05;
+
+// 计算需要生成的类的数量
+$count: ceil(calc(($start-size - $end-size) / $step));
+
+// 使用@for指令生成类，从fs-6开始
+@for $i from 0 through $count {
+  $size: $start-size - $i * $step;
+  $rounded-size: calc(round($size * 100) / 100); // 四舍五入到两位小数
+  $class-number: $i + 6; // 类名从6开始
+
+  .fs-#{$class-number} {
+    font-size: #{$rounded-size}rem !important;
+  }
+}
