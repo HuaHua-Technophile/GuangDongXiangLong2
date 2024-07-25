@@ -1,6 +1,8 @@
 <template>
   <!-- 头部 -->
-  <header class="position-fixed w-100 bg-white" style="z-index: 999">
+  <header
+    class="position-fixed w-100 bg-white bg-opacity-50 shadow"
+    style="z-index: 999; backdrop-filter: blur(10px)">
     <div
       class="container d-flex align-items-center justify-content-around"
       style="height: 4.5rem">
@@ -29,12 +31,13 @@
           class="dropdown d-flex align-items-center cursor-pointer fs-5 px-2 position-relative h-100 d-flex align-items-center">
           {{ i.name }}
           <div
-            class="position-absolute top-100 start-50 bg-white rounded-bottom transition750 w-100 overflow-hidden d-flex flex-column">
+            class="position-absolute top-100 start-50 bg-white shadow rounded-bottom transition750 overflow-hidden"
+            style="--bs-bg-opacity: 0.8; width: 7.6rem">
             <RouterLink
               v-for="(j, index) in i.down"
               :to="j.path"
               :class="[index == 0 ? 'my-1' : 'mb-1']"
-              class="text-decoration-none transition750 w-100 text-center rounded py-1">
+              class="d-block text-decoration-none transition750 text-center rounded py-1">
               {{ j.name }}
             </RouterLink>
           </div>

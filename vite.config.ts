@@ -10,7 +10,7 @@ export default defineConfig({
       template: {
         compilerOptions: {
           // https://github.com/nolimits4web/swiper/discussions/7333 Failed to resolve component: swiper-slide and swiper-container
-          isCustomElement: (tag) => tag.includes("swiper"),
+          isCustomElement: (tag: any) => tag.includes("swiper"),
         },
       },
     }),

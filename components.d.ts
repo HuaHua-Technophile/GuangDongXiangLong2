@@ -8,6 +8,8 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     copy: typeof import('./src/components/VerticalParallaxSwiper copy.vue')['default']
+    FadeChangeBgSlide: typeof import('./src/components/FadeChangeBgSlide.vue')['default']
+    FadeChangeSwiper: typeof import('./src/components/FadeChangeSwiper.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     VerticalParallaxSwiper: typeof import('./src/components/VerticalParallaxSwiper.vue')['default']

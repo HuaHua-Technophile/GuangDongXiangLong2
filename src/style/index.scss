@@ -55,3 +55,8 @@ $count: ceil(calc(($start-size - $end-size) / $step));
     font-size: #{$rounded-size}rem !important;
   }
 }
+
+.bgimg-center-cover {
+  background-position: center;
+  background-size: cover;
+}

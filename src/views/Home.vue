@@ -1,48 +1,78 @@
 <template>
   <VerticalParallaxSwiper>
-    <swiper-slide class="w-100 h-100">
-      <img
-        loading="lazy"
-        v-lazy="'/images/Home/Home1.webp'"
-        class="w-100 h-100 object-fit-cover position-absolute top-0 left-0"
-        style="object-position: center" />
-      <div
-        class="w-100 position-absolute top-50 text-white SlideTitle"
-        style="
-          z-index: 2;
-          font-size: 4.8rem;
-          text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
-        ">
-        <div class="container lh-1" style="vertical-align: bottom !important">
-          <span>美</span> 味生活领导者
-        </div>
-      </div>
+    <swiper-slide class="w-100 h-100 overflow-hidden">
+      <FadeChangeSwiper ref="fadeChangeSwiper" class="w-100 h-100">
+        <swiper-slide
+          v-for="i in firstSlide"
+          :title="i.title"
+          :bg="i.bg"
+          v-lazy:background-image="i.bg"
+          class="bgimg-center-cover">
+          <div class="SlideTitle position-absolute top-50 w-100">
+            <div
+              class="container text-white"
+              v-html="i.title"
+              style="
+                font-size: 3.5rem;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+              "></div>
+          </div>
+        </swiper-slide>
+      </FadeChangeSwiper>
     </swiper-slide>
+
+    <!-- ---------------------- -->
     <swiper-slide
       class="w-100 h-100 d-flex align-items-center justify-content-center fs-1"
       >Slide 3</swiper-slide
     >
-    <swiper-slide
-      class="w-100 h-100 d-flex align-items-center justify-content-center fs-1"
-      >Slide 2</swiper-slide
-    >
   </VerticalParallaxSwiper>
 </template>
+<script lang="ts" setup>
+  import { SwiperContainer } from "swiper/element";
+  import { onMounted, ref } from "vue";
+
+  const fadeChangeSwiper = ref<{ swiperContainer: SwiperContainer }>();
+
+  onMounted(() => {
+    fadeChangeSwiper.value?.swiperContainer.initialize();
+  });
+
+  const firstSlide = [
+    {
+      title: "香韵缔造美味<br/>引领品质生活",
+      bg: "/images/Home/Home1.webp",
+    },
+    {
+      title: "全球化布局<br/>国际视野,多元化发展",
+      bg: "/images/Home/Home2.webp",
+    },
+    {
+      title: "创新驱动<br/>香龙研发实力的见证",
+      bg: "/images/Home/Home3.webp",
+    },
+  ];
+</script>
 <style lang="scss" scoped>
   .SlideTitle {
     ::before {
       content: "";
       display: block;
       background: white;
-      width: 55px;
-      height: 15px;
+      width: 7rem;
+      height: 1rem;
       box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
       position: absolute;
-      top: -60px;
-      opacity: 0.5;
+      top: -4rem;
+      left: 8rem;
     }
-    span {
-      font-size: 6.5rem;
+    & {
+      text-indent: -6em;
+      padding-left: 13em;
+    }
+    &::first-letter {
+      font-size: 2em; //两倍原本大小
+      margin-right: 1rem;
     }
   }
 </style>
