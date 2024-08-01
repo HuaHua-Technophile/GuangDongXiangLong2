@@ -21,7 +21,7 @@
       },
     }"
     class="position-relative">
-    <slot></slot>
+    <slot />
   </swiper-container>
 </template>
 <script lang="ts" setup>
