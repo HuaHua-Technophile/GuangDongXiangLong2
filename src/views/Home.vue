@@ -44,7 +44,9 @@
               v-lazy="mediaNews.data[0].img"
               class="w-100 mb-3 mediaBigImg transition750 rounded-3 shadow"
               style="max-height: 20rem" />
-            <div class="fw-bold mb-3 opacity-75 title transition500">
+            <div
+              class="fw-bold mb-3 opacity-75 title transition500"
+              style="font-size: 1.08rem">
               {{ mediaNews.data[0].title }}
             </div>
             <div class="opacity-75 transition500">
@@ -71,7 +73,11 @@
               <div class="fs-3">{{ i.date.slice(8, 10) }}</div>
             </div>
             <div class="opacity-75">
-              <div class="fw-bold mb-3 title transition500">{{ i.title }}</div>
+              <div
+                class="fw-bold mb-3 title transition500"
+                style="font-size: 1.08rem">
+                {{ i.title }}
+              </div>
               <div class="transition500">{{ i.content }}</div>
             </div>
           </a>
@@ -272,6 +278,7 @@
       color: var(--bs-xlxl) !important;
       .title {
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+        font-size: 1.15rem !important;
       }
     }
   }
