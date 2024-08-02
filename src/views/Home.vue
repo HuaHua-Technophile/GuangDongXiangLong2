@@ -11,10 +11,11 @@
           class="bgimg-center-cover">
           <div
             class="SlideTitle position-absolute top-50 w-100"
-            data-swiper-parallax="-600">
+            data-swiper-parallax="-600"
+            style="left: 20%">
             <div
-              class="container text-white"
               v-html="i.title"
+              class="text-white"
               style="
                 font-size: 3.5rem;
                 text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -25,29 +26,15 @@
     </swiper-slide>
     <!-- 媒体中心 -->
     <swiper-slide
-      class="MediaNews w-100 h-100 d-flex flex-column justify-content-evenly"
+      class="MediaNews d-flex flex-column justify-content-evenly"
       style="padding-top: 4.5rem">
-      <div>
-        <div class="text-center fs-3 mb-1" style="letter-spacing: 0.2rem">
-          媒体中心
-        </div>
-        <div
-          class="text-center"
-          style="letter-spacing: 1.5rem; text-indent: 1.5em">
-          香韵缔造美味
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="mediaTitle bg-black bg-opacity-25 mx-2"></div>
-          <img v-lazy="'/images/LOGO.webp'" style="height: 1.3rem" />
-          <div class="mediaTitle bg-black bg-opacity-25 mx-2"></div>
-        </div>
-      </div>
+      <SlideTitie data-swiper-parallax="-600">媒体中心</SlideTitie>
       <!-- 内容 -->
       <div
         class="d-flex align-items-center mx-auto"
         style="max-width: var(--content-max-width)">
         <!-- 左边大图 -->
-        <div class="col-6 p-5">
+        <div class="col-6 p-5" data-swiper-parallax="-400">
           <a
             :href="mediaNews.data[0].url"
             target="_blank"
@@ -55,7 +42,8 @@
             class="text-black text-decoration-none">
             <img
               v-lazy="mediaNews.data[0].img"
-              class="w-100 mb-3 mediaBigImg transition750 rounded-3 shadow" />
+              class="w-100 mb-3 mediaBigImg transition750 rounded-3 shadow"
+              style="max-height: 20rem" />
             <div class="fw-bold mb-3 opacity-75 title transition500">
               {{ mediaNews.data[0].title }}
             </div>
@@ -65,7 +53,7 @@
           </a>
         </div>
         <!-- 右边列表排列3个 -->
-        <div class="col-6">
+        <div class="col-6" data-swiper-parallax="-200">
           <a
             v-for="(i, index) in mediaNews.data.slice(0, 3)"
             :href="i.url"
@@ -90,6 +78,44 @@
         </div>
       </div>
     </swiper-slide>
+    <!-- 产业和技术 -->
+    <swiper-slide v-lazy:background-image="'/images/Home/Labs1.webp'">
+      <div
+        style="backdrop-filter: blur(10px); padding-top: 4.5rem"
+        class="w-100 h-100 d-flex flex-column justify-content-evenly">
+        <SlideTitie data-swiper-parallax="-600">产业&技术</SlideTitie>
+        <!-- 分类 -->
+        <div
+          class="d-flex justify-content-around align-items-center mx-auto"
+          style="width: var(--content-max-width)">
+          <div
+            v-for="(i, index) in industryAndTechnology"
+            class="industryAndTechnologyIcon transition750 shadow bg-xlxl text-white d-flex align-items-center justify-content-center animate__animated animate__pulse animate__infinite"
+            :class="[i.icon]"
+            style="
+              width: 16rem;
+              height: 16rem;
+              font-size: 7rem;
+              border-radius: 999rem;
+              background-clip: content-box; /* 剪裁到内容区外沿 */
+              border: 2rem rgba(255, 255, 255, 0.5) solid;
+            "
+            :style="[
+              index == 0
+                ? '--animate-duration: 3s;'
+                : index == 1
+                ? '--animate-duration: 4s;'
+                : '--animate-duration: 5s;',
+            ]">
+            <div
+              class="position-absolute fs-3 top-100 transition1000"
+              style="text-shadow: 0 0 3px rgba(0, 0, 0, 0.5); left: -10%">
+              {{ i.title }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
     <!-- 页脚 -->
     <swiper-slide class="h-auto">
       <Footer />
@@ -101,12 +127,7 @@
   import { onMounted, ref } from "vue";
   import mediaNews from "../data/MediaNews.json";
 
-  const fadeChangeSwiper = ref<{ swiperContainer: SwiperContainer }>();
-
-  onMounted(() => {
-    fadeChangeSwiper.value?.swiperContainer.initialize();
-  });
-
+  //首屏数据------------------
   const firstSlide = [
     {
       title: "香韵缔造美味<br/>引领品质生活",
@@ -121,8 +142,12 @@
       bg: "/images/Home/Home3.webp",
     },
   ];
+  const fadeChangeSwiper = ref<{ swiperContainer: SwiperContainer }>();
+  onMounted(() => {
+    fadeChangeSwiper.value?.swiperContainer.initialize();
+  });
 
-  // 月份转换
+  // 月份转换-----------
   const monthAbbreviations = [
     "Jan",
     "Feb",
@@ -141,10 +166,26 @@
     const index = Number(num) - 1;
     return index >= 0 && index < 12 ? monthAbbreviations[index] : "Invalid";
   };
+
+  // 产业技术--------------
+  const industryAndTechnology = [
+    {
+      icon: "iconfont icon-yinliao",
+      title: "食用香精",
+    },
+    {
+      icon: "iconfont icon-yancaoyanju",
+      title: "烟用香精",
+    },
+    {
+      icon: "iconfont icon-a-3yongliao",
+      title: "食品配料",
+    },
+  ];
 </script>
 <style lang="scss" scoped>
   .SlideTitle {
-    ::before {
+    &::before {
       content: "";
       display: block;
       background: white;
@@ -153,11 +194,10 @@
       box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
       position: absolute;
       top: -4rem;
-      left: 8rem;
+      left: -6rem;
     }
     & {
       text-indent: -6em;
-      padding-left: 13em;
     }
     &::first-letter {
       font-size: 2em; //两倍原本大小
@@ -172,10 +212,6 @@
       }
     }
   }
-  .mediaTitle {
-    width: 8.5rem;
-    height: 1.5px;
-  }
   .mediaBigImg:hover {
     transform: scale(1.03);
     box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.5) !important;
@@ -184,5 +220,9 @@
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     border-bottom: 1px dashed rgba(0, 0, 0, 0.3);
+  }
+  .industryAndTechnologyIcon:hover {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5) !important;
+    border-width: 1.5rem !important;
   }
 </style>

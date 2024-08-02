@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4641567 */
+  src: url("/iconfont/iconfont.woff2");
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-a-3yongliao:before {
+  content: "\e600";
+}
+
+.icon-yinliao:before {
+  content: "\e685";
+}
+
+.icon-yancaoyanju:before {
+  content: "\e6be";
+}

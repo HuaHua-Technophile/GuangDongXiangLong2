@@ -11,6 +11,7 @@ declare module 'vue' {
     Footer: typeof import('./src/components/Footer.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SlideTitie: typeof import('./src/components/SlideTitie.vue')['default']
     VerticalParallaxSwiper: typeof import('./src/components/VerticalParallaxSwiper.vue')['default']
   }
 }

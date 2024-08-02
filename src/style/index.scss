@@ -3,6 +3,9 @@
 
 //字体图标-------------------
 @use "bootstrap-icons/font/bootstrap-icons.css";
+@use "./iconfont/iconfont.scss";
+//动画------------------------------
+@use "animate.css";
 
 // 定义一个包含字体信息的列表，每项包含字体名和文件名
 $fonts: (

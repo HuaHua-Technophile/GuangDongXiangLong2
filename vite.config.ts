@@ -22,6 +22,7 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
   ],
+
   esbuild: {
     target: "es2020",
   },
