@@ -12,7 +12,8 @@
     :parallax="true"
     slides-per-view="auto"
     :init="false"
-    class="vw-100 vh-100">
+    class="vw-100 vh-100"
+    @swiperslidechange="props.swiperslidechange">
     <!-- 插槽 -->
     <slot></slot>
   </swiper-container>
@@ -21,7 +22,8 @@
   import type { SwiperContainer } from "swiper/element";
   import { onMounted, onUnmounted, ref } from "vue";
   // 滑动事件-----------------
-
+  // 滑动事件-----------------
+  const props = defineProps<{ swiperslidechange?: Function }>();
   // 延迟DOM加载后实例化------------
   const swiperOut = ref<SwiperContainer>();
   defineExpose({ swiperOut });

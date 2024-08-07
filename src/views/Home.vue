@@ -1,5 +1,7 @@
 <template>
-  <VerticalParallaxSwiper>
+  <VerticalParallaxSwiper
+    ref="swiperOut"
+    :swiperslidechange="SwiperOutSlideChange">
     <!-- 首屏大图轮播 -->
     <swiper-slide class="w-100 h-100 overflow-hidden">
       <FadeChangeSwiper ref="fadeChangeSwiper" class="w-100 h-100">
@@ -138,12 +140,12 @@
         data-swiper-parallax="-200">
         <div
           v-for="(i, index) in companyOverview"
-          class="d-flex align-items-center"
+          class="companyOverviewIcon d-flex align-items-center"
           :class="[index % 2 == 0 ? 'flex-column' : 'flex-column-reverse']">
           <!-- 图标 -->
           <div
             :class="[i.icon]"
-            class="border border-3 border-black border-opacity-50 d-flex text-xlxl align-items-center justify-content-center"
+            class="Icon transition750 border border-3 border-black border-opacity-50 d-flex text-xlxl align-items-center justify-content-center"
             style="
               font-size: 4rem;
               width: 7rem;
@@ -156,7 +158,7 @@
             class="my-3 bg-black bg-opacity-50"></div>
           <!-- 数据 -->
           <div class="d-flex align-items-center lh-1">
-            <span class="fs-2 fw-bold">{{ i.data }}</span>
+            <span ref="countUpData" class="fs-2 fw-bold">{{ i.data }}</span>
             <span class="fs-4 ms-2">{{ i.unit }}</span>
           </div>
           <!-- 内容 -->
@@ -174,6 +176,8 @@
   import { SwiperContainer } from "swiper/element";
   import { onMounted, ref } from "vue";
   import mediaNews from "../data/MediaNews.json";
+  import { CountUp } from "countup.js";
+  import { Swiper } from "swiper/types";
 
   //首屏数据------------------
   const firstSlide = [
@@ -251,6 +255,28 @@
       unit: "个",
     },
   ];
+
+  // 企业概览的数据countUp--------------
+  const countUpData = ref();
+  const swiperOut = ref<{ swiperOut: SwiperContainer }>();
+  const SwiperOutSlideChange = (e: CustomEvent<[Swiper]>) => {
+    // onSlideChange事件会被内层swiper实例触发，莫名其妙？？？，且无法通过event.stopPropagation组织冒泡.于是在最外层再做一次判断来自哪个实例触发
+    if (
+      e.detail[0] == swiperOut.value?.swiperOut.swiper &&
+      e.detail[0].activeIndex == 3
+    ) {
+      for (let i = 0, len = countUpData.value.length; i < len; i++) {
+        new CountUp(
+          countUpData.value[i] as HTMLElement,
+          Number(countUpData.value[i]?.innerHTML.replace(/,/g, "")),
+          {
+            duration: 5,
+            useEasing: false,
+          }
+        ).start();
+      }
+    }
+  };
 </script>
 <style lang="scss" scoped>
   .SlideTitle {
@@ -294,5 +320,11 @@
   .industryAndTechnologyIcon:hover {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5) !important;
     border-width: 1.5rem !important;
+  }
+  .companyOverviewIcon:hover .Icon {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5),
+      inset 4px 4px 6px rgba(0, 0, 0, 0.3) !important;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   }
 </style>

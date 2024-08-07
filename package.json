@@ -12,14 +12,15 @@
     "animate.css": "^4.1.1",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "countup.js": "^2.8.0",
     "scss": "^0.2.4",
     "swiper": "^11.1.9",
-    "vue": "^3.4.35",
+    "vue": "^3.4.36",
     "vue-lazyload": "^3.0.0",
-    "vue-router": "^4.4.2"
+    "vue-router": "^4.4.3"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.1.1",
+    "@vitejs/plugin-vue": "^5.1.2",
     "@vue/tsconfig": "^0.5.1",
     "typescript": "^5.5.4",
     "unplugin-auto-import": "^0.18.2",
