@@ -1,0 +1,22 @@
+{
+  "arr": [
+    {
+      "icon": "iconfont icon-rili",
+      "title": "持之以恒打造",
+      "data": 28,
+      "unit": "年"
+    },
+    {
+      "icon": "iconfont icon-jinqian",
+      "title": "坚持研发投入",
+      "data": 1448.76,
+      "unit": "万"
+    },
+    {
+      "icon": "iconfont icon-zhengshu",
+      "title": "专利证书数量",
+      "data": 34,
+      "unit": "个"
+    }
+  ]
+}

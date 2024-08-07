@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    CountUpData: typeof import('./src/components/CountUpData.vue')['default']
     FadeChangeSwiper: typeof import('./src/components/FadeChangeSwiper.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

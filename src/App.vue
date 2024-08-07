@@ -68,7 +68,7 @@
         },
         {
           path: "/AboutUs",
-          name: "企业文化",
+          name: "发展与战略",
         },
         {
           path: "/AboutUs",

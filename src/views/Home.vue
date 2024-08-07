@@ -134,37 +134,11 @@
         data-swiper-parallax="-400">
         广东香龙香料有限公司是一家专业从事香精香料研发、生产和销售的高新技术企业。公司成立于2006年，是香龙集团的核心子公司。我们的业务涵盖烟用香精、食用香精和植物提取物等领域，产品广泛应用于烟草、食品、日化等行业。凭借强大的研发实力、先进的生产设备和完善的质量管理体系，香龙香料已成为行业内的领军企业。我们致力于为客户提供高品质、创新型的香精香料解决方案，推动行业可持续发展。
       </div>
-      <div
-        class="mx-auto d-flex justify-content-around align-items-center"
+      <CountUpData
+        ref="CountUpDataEl"
+        :data="companyData.arr"
         style="width: var(--content-max-width)"
-        data-swiper-parallax="-200">
-        <div
-          v-for="(i, index) in companyOverview"
-          class="companyOverviewIcon d-flex align-items-center"
-          :class="[index % 2 == 0 ? 'flex-column' : 'flex-column-reverse']">
-          <!-- 图标 -->
-          <div
-            :class="[i.icon]"
-            class="Icon transition750 border border-3 border-black border-opacity-50 d-flex text-xlxl align-items-center justify-content-center"
-            style="
-              font-size: 4rem;
-              width: 7rem;
-              height: 7rem;
-              border-radius: 999rem;
-            "></div>
-          <!-- 竖线 -->
-          <div
-            style="height: 2rem; width: 2px"
-            class="my-3 bg-black bg-opacity-50"></div>
-          <!-- 数据 -->
-          <div class="d-flex align-items-center lh-1">
-            <span ref="countUpData" class="fs-2 fw-bold">{{ i.data }}</span>
-            <span class="fs-4 ms-2">{{ i.unit }}</span>
-          </div>
-          <!-- 内容 -->
-          <div class="my-2">{{ i.title }}</div>
-        </div>
-      </div>
+        data-swiper-parallax="-200" />
     </swiper-slide>
     <!-- 页脚 -->
     <swiper-slide class="h-auto">
@@ -176,9 +150,8 @@
   import { SwiperContainer } from "swiper/element";
   import { onMounted, ref } from "vue";
   import mediaNews from "../data/MediaNews.json";
-  import { CountUp } from "countup.js";
   import { Swiper } from "swiper/types";
-
+  import companyData from "../data/companyData.json";
   //首屏数据------------------
   const firstSlide = [
     {
@@ -234,48 +207,17 @@
       title: "食品配料",
     },
   ];
-  // 企业概览---------------
-  const companyOverview = [
-    {
-      icon: "iconfont icon-rili",
-      title: "持之以恒打造",
-      data: 28,
-      unit: "年",
-    },
-    {
-      icon: "iconfont icon-jinqian",
-      title: "坚持研发投入",
-      data: 1448.76,
-      unit: "万",
-    },
-    {
-      icon: "iconfont icon-zhengshu",
-      title: "专利证书数量",
-      data: 34,
-      unit: "个",
-    },
-  ];
 
   // 企业概览的数据countUp--------------
-  const countUpData = ref();
+  const CountUpDataEl = ref();
   const swiperOut = ref<{ swiperOut: SwiperContainer }>();
   const SwiperOutSlideChange = (e: CustomEvent<[Swiper]>) => {
     // onSlideChange事件会被内层swiper实例触发，莫名其妙？？？，且无法通过event.stopPropagation组织冒泡.于是在最外层再做一次判断来自哪个实例触发
     if (
       e.detail[0] == swiperOut.value?.swiperOut.swiper &&
       e.detail[0].activeIndex == 3
-    ) {
-      for (let i = 0, len = countUpData.value.length; i < len; i++) {
-        new CountUp(
-          countUpData.value[i] as HTMLElement,
-          Number(countUpData.value[i]?.innerHTML.replace(/,/g, "")),
-          {
-            duration: 5,
-            useEasing: false,
-          }
-        ).start();
-      }
-    }
+    )
+      CountUpDataEl.value.startCountUp();
   };
 </script>
 <style lang="scss" scoped>
