@@ -60,29 +60,27 @@
       name: "首页",
     },
     {
-      path: "/",
       name: "关于我们",
       down: [
         {
-          path: "/",
-          name: "公司简介",
+          path: "/AboutUs",
+          name: "企业概况",
         },
         {
-          path: "/",
+          path: "/AboutUs",
           name: "企业文化",
         },
         {
-          path: "/",
+          path: "/AboutUs",
           name: "企业荣誉",
         },
         {
-          path: "/",
+          path: "/AboutUs",
           name: "企业资质",
         },
       ],
     },
     {
-      path: "/",
       name: "产业&技术",
       down: [
         {
