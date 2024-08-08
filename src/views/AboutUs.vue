@@ -110,7 +110,7 @@
           grid-template-columns: repeat(3, auto);
           gap: 2rem;
         "
-        data-swiper-parallax="300">
+        data-swiper-parallax="-300">
         <div
           v-for="i in honerText"
           class="honer transition750 border shadow-sm rounded p-4">
