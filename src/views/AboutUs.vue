@@ -89,7 +89,9 @@
             v-lazy="'/images/AboutUs/AboutUs4.png'"
             style="width: 18rem; z-index: -1"
             class="rotateBall position-absolute top-50 start-50" />
-          <div v-for="i in devStrategyText">
+          <div
+            v-for="(i, index) in devStrategyText"
+            :data-swiper-parallax="-90 * (index % devStrategyText.length)">
             <span class="fs-7 fw-bold me-1">{{ i.title }}</span>
             <span class="fs-8">{{ i.content }}</span>
           </div>

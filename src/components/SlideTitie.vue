@@ -10,7 +10,7 @@
       <div
         class="bg-black bg-opacity-25 mx-2"
         style="width: 8.5rem; height: 1.5px"></div>
-      <img v-lazy="'/images/LOGO.webp'" style="height: 1.3rem" />
+      <img src="/images/LOGO.webp" style="height: 1.3rem" />
       <div
         class="bg-black bg-opacity-25 mx-2"
         style="width: 8.5rem; height: 1.5px"></div>
