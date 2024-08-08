@@ -109,11 +109,11 @@
           max-width: var(--content-max-width);
           grid-template-columns: repeat(3, auto);
           gap: 2rem;
-        ">
+        "
+        data-swiper-parallax="300">
         <div
-          v-for="(i, index) in honerText"
-          class="honer transition750 border shadow-sm rounded p-4"
-          :data-swiper-parallax="-150 * (index % 3)">
+          v-for="i in honerText"
+          class="honer transition750 border shadow-sm rounded p-4">
           <div class="bg-danger mb-3" style="width: 40px; height: 5px"></div>
           {{ i }}
         </div>
