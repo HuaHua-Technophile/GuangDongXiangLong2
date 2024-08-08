@@ -50,3 +50,11 @@
   };
   defineExpose({ startCountUp });
 </script>
+<style lang="scss" scoped>
+  .companyOverviewIcon:hover .Icon {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5),
+      inset 4px 4px 6px rgba(0, 0, 0, 0.3) !important;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+</style>

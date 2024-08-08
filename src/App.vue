@@ -51,9 +51,18 @@
       </template>
     </div>
   </header>
-  <RouterView />
+  <RouterView v-slot="{ Component }">
+    <transition
+      mode="out-in"
+      enter-active-class="animate__animated animate__fadeIn animate_faster"
+      leave-active-class="animate__animated animate__fadeOut animate_faster">
+      <component :is="Component" />
+    </transition>
+  </RouterView>
 </template>
 <script lang="ts" setup>
+  import AboutUs from "./data/AboutUs.json";
+
   const header = [
     {
       path: "/",
@@ -61,24 +70,7 @@
     },
     {
       name: "关于我们",
-      down: [
-        {
-          path: "/AboutUs",
-          name: "企业概况",
-        },
-        {
-          path: "/AboutUs",
-          name: "发展与战略",
-        },
-        {
-          path: "/AboutUs",
-          name: "企业荣誉",
-        },
-        {
-          path: "/AboutUs",
-          name: "企业资质",
-        },
-      ],
+      down: AboutUs.arr,
     },
     {
       name: "产业&技术",

@@ -20,13 +20,15 @@
           关于我们
         </div>
         <div
-          class="d-flex mx-auto fs-3 mb-3"
+          class="d-flex mx-auto fs-4 mb-3"
           style="max-width: var(--content-max-width)"
           data-swiper-parallax="-300">
-          <div class="mx-3">企业概况</div>
-          <div class="mx-3">发展与战略</div>
-          <div class="mx-3">公司简介</div>
-          <div class="mx-3">公司简介</div>
+          <div
+            v-for="(i, index) in AboutUs.arr"
+            class="mx-3 cursor-pointer"
+            @click="slideChange(index + 1)">
+            {{ i.name }}
+          </div>
         </div>
       </div>
     </swiper-slide>
@@ -34,7 +36,9 @@
     <swiper-slide
       class="d-flex flex-column justify-content-evenly"
       style="padding-top: 4.5rem">
-      <SlideTitie data-swiper-parallax="-600">企业概况</SlideTitie>
+      <SlideTitie data-swiper-parallax="-600">{{
+        AboutUs.arr[0].name
+      }}</SlideTitie>
       <div
         class="d-flex align-items-center justify-content-around mx-auto"
         style="max-width: var(--content-max-width)">
@@ -57,21 +61,24 @@
       </div>
     </swiper-slide>
     <!-- 又一个CountUdp动画 -->
-    <swiper-slide class="h-auto">
+    <swiper-slide class="h-auto mb-5">
       <CountUpData
         ref="CountUpDataEl"
         :data="companyData.arr"
         style="width: var(--content-max-width)" />
     </swiper-slide>
+    <!-- 发展与战略 -->
     <swiper-slide
       v-lazy:background-image="'/images/AboutUs/AboutUs3.webp'"
       style="background-position: center; background-size: cover">
       <div
         class="w-100 h-100 d-flex flex-column justify-content-evenly bg-white bg-opacity-50"
         style="padding-top: 4.5rem; backdrop-filter: blur(10px)">
-        <SlideTitie data-swiper-parallax="-600">发展与战略</SlideTitie>
+        <SlideTitie data-swiper-parallax="-600">{{
+          AboutUs.arr[1].name
+        }}</SlideTitie>
         <div
-          class="d-grid justify-content-between flex-wrap mx-auto position-relative"
+          class="d-grid justify-content-between mx-auto position-relative"
           style="
             max-width: var(--content-max-width);
             grid-template-columns: repeat(2, auto);
@@ -89,6 +96,64 @@
         </div>
       </div>
     </swiper-slide>
+    <!-- 企业荣誉 -->
+    <swiper-slide class="d-flex flex-column justify-content-evenly">
+      <SlideTitie data-swiper-parallax="-600">{{
+        AboutUs.arr[2].name
+      }}</SlideTitie>
+      <div
+        class="d-grid justify-content-between mx-auto position-relative"
+        style="
+          max-width: var(--content-max-width);
+          grid-template-columns: repeat(3, auto);
+          gap: 2rem;
+        ">
+        <div
+          v-for="i in honerText"
+          class="honer transition750 border shadow-sm rounded p-4">
+          <div class="bg-danger mb-3" style="width: 40px; height: 5px"></div>
+          {{ i }}
+        </div>
+      </div>
+    </swiper-slide>
+    <!-- 企业文化 -->
+    <swiper-slide
+      v-lazy:background-image="'/images/AboutUs/AboutUs5.webp'"
+      style="background-position: center; background-size: cover">
+      <div
+        class="w-100 h-100 d-flex flex-column justify-content-evenly bg-white bg-opacity-25"
+        style="padding-top: 4.5rem; backdrop-filter: blur(10px)">
+        <SlideTitie data-swiper-parallax="-600">{{
+          AboutUs.arr[3].name
+        }}</SlideTitie>
+        <div
+          class="d-flex align-items-center justify-content-between mx-auto"
+          style="width: var(--content-max-width)">
+          <div
+            v-for="i in cultureText"
+            class="d-flex flex-column align-items-center">
+            <i
+              :class="i.icon"
+              class="cultureIcon transition750 bg-xlxl text-white d-flex justify-content-center align-items-center rounded-circle"
+              style="
+                width: 10rem;
+                height: 10rem;
+                font-size: 4.5rem;
+                background-clip: content-box; /* 剪裁到内容区外沿 */
+                border: 1.2rem rgba(var(--bs-xlxl-rgb), 0.2) solid;
+              "></i>
+            <div
+              class="text-xlxl fw-bold fs-5 my-3"
+              style="text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.2)">
+              {{ i.title }}
+            </div>
+            <div class="fw-bold">
+              {{ i.content }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
     <!-- 页脚 -->
     <swiper-slide class="h-auto">
       <Footer />
@@ -98,11 +163,17 @@
 <script lang="ts" setup>
   import { SwiperContainer } from "swiper/element";
   import companyData from "../data/companyData.json";
+  import AboutUs from "../data/AboutUs.json";
   import { ref } from "vue";
   import { Swiper } from "swiper/types";
+  const swiperOut = ref<{ swiperOut: SwiperContainer }>();
+  const slideChange = (index: number) => {
+    index > 1 ? (index += 1) : null;
+    swiperOut.value?.swiperOut.swiper.slideTo(index);
+  };
+
   // 数值动画----------------
   const CountUpDataEl = ref();
-  const swiperOut = ref<{ swiperOut: SwiperContainer }>();
 
   const SwiperOutSlideChange = (e: CustomEvent<[Swiper]>) => {
     // onSlideChange事件会被内层swiper实例触发，莫名其妙？？？，且无法通过event.stopPropagation组织冒泡.于是在最外层再做一次判断来自哪个实例触发
@@ -112,7 +183,7 @@
     )
       CountUpDataEl.value.startCountUp();
   };
-
+  // 发展与战略-------------
   const devStrategyText = [
     {
       title: "科技创新",
@@ -145,6 +216,45 @@
         "公司视人才为最宝贵的资产，注重员工的培养与发展。香龙香料将通过多种途径提高员工的专业素质和综合能力，营造良好的企业文化，激发员工的创新精神和工作热情。通过人才战略的实施，公司将确保持续的竞争优势和长远的发展动力。",
     },
   ];
+  // 资质与荣誉-------------
+  const honerText = [
+    '2023年，香龙香料荣获 广东省科学厅、广东省财政厅 颁发的"高新技术企业"称号',
+    '2017年，香龙香料荣获"白云区江高镇纳税大户铜奖"称号',
+    '2018年，香龙香料连续第二次，荣获"白云区江高镇纳税大户铜奖"称号',
+    '2019年，香龙香料连续第三次，荣获"白云区江高镇纳税大户铜奖"称号',
+    '2020年，香龙香料荣获"广东省守合同重信用企业"称号',
+    '2020年，香龙香料荣获 中国质量认证监督管理中心 颁发的"AAA级别企业信用"称号',
+    '2020年，香龙香料荣获 中国质量认证监督管理中心 颁发的"优秀产品质量奖"',
+    '2020年，香龙香料荣获 中国质量认证监督管理中心 颁发的"广东省行业十佳品牌"荣誉称号',
+  ];
+  // 企业文化-----------------
+  const cultureText = [
+    {
+      icon: "iconfont icon-qiyeyuanjing",
+      title: "愿景",
+      content: "香韵缔造美味",
+    },
+    {
+      icon: "iconfont icon-shiming",
+      title: "使命",
+      content: "创新香料科技，提升生活品质",
+    },
+    {
+      icon: "iconfont icon-wangzhantubiaoji2_huaban1fuben21",
+      title: "核心价值观",
+      content: "诚信、创新、卓越、共赢",
+    },
+    {
+      icon: "iconfont icon-qiyejingshen",
+      title: "企业精神",
+      content: "匠心质造，追求卓越",
+    },
+    {
+      icon: "iconfont icon-rencaifuwu",
+      title: "人才理念",
+      content: "尊重人才，培养专业，激发潜能",
+    },
+  ];
 </script>
 <style lang="scss" scoped>
   .企业概况img:hover {
@@ -161,5 +271,13 @@
   }
   .rotateBall {
     animation: rotateBall 15s linear infinite;
+  }
+  .honer:hover {
+    transform: translate(0px, -5px);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3) !important;
+  }
+  .cultureIcon:hover {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5) !important;
+    border-width: 0.9rem !important;
   }
 </style>
