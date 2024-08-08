@@ -109,8 +109,9 @@
           gap: 2rem;
         ">
         <div
-          v-for="i in honerText"
-          class="honer transition750 border shadow-sm rounded p-4">
+          v-for="(i, index) in honerText"
+          class="honer transition750 border shadow-sm rounded p-4"
+          :data-swiper-parallax="-150 * (index % 3)">
           <div class="bg-danger mb-3" style="width: 40px; height: 5px"></div>
           {{ i }}
         </div>
@@ -130,8 +131,9 @@
           class="d-flex align-items-center justify-content-between mx-auto"
           style="width: var(--content-max-width)">
           <div
-            v-for="i in cultureText"
-            class="d-flex flex-column align-items-center">
+            v-for="(i, index) in cultureText"
+            class="d-flex flex-column align-items-center"
+            :data-swiper-parallax="-90 * (index % cultureText.length)">
             <i
               :class="i.icon"
               class="cultureIcon transition750 bg-xlxl text-white d-flex justify-content-center align-items-center rounded-circle"
