@@ -76,11 +76,11 @@
       name: "产业&技术",
       down: [
         {
-          path: "/",
+          path: "/Estate",
           name: "产业板块",
         },
         {
-          path: "/",
+          path: "/Estate",
           name: "研发创新",
         },
       ],

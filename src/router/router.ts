@@ -13,6 +13,11 @@ const router = createRouter({
       name: "关于我们",
       component: () => import("../views/AboutUs.vue"),
     },
+    {
+      path: "/Estate",
+      name: "产业&技术",
+      component: () => import("../views/Estate.vue"),
+    },
   ],
 });
 

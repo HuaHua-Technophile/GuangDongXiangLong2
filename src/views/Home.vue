@@ -33,10 +33,14 @@
       <SlideTitie data-swiper-parallax="-600">媒体中心</SlideTitie>
       <!-- 内容 -->
       <div
-        class="d-flex align-items-center mx-auto"
-        style="max-width: var(--content-max-width)">
+        class="d-grid align-items-center mx-auto"
+        style="
+          max-width: var(--content-max-width);
+          grid-template-columns: repeat(2, 1fr);
+          gap: 5rem;
+        ">
         <!-- 左边大图 -->
-        <div class="col-6 p-5" data-swiper-parallax="-400">
+        <div data-swiper-parallax="-400">
           <a
             :href="mediaNews.data[0].url"
             target="_blank"
@@ -57,7 +61,7 @@
           </a>
         </div>
         <!-- 右边列表排列3个 -->
-        <div class="col-6" data-swiper-parallax="-200">
+        <div data-swiper-parallax="-200">
           <a
             v-for="(i, index) in mediaNews.data.slice(0, 3)"
             :href="i.url"

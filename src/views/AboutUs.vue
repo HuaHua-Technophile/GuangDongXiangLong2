@@ -13,19 +13,19 @@
           backdrop-filter: blur(4px);
           text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
         ">
-        <div
+        <h1
           class="flex-grow-1 d-flex justify-content-center align-items-center"
           style="font-size: 3rem; letter-spacing: 0.7rem"
           data-swiper-parallax="-600">
           关于我们
-        </div>
+        </h1>
         <div
           class="d-flex mx-auto fs-4 mb-3"
           style="max-width: var(--content-max-width)"
           data-swiper-parallax="-300">
           <div
             v-for="(i, index) in AboutUs.arr"
-            class="mx-3 cursor-pointer"
+            class="slideChangeBtn transition750 mx-3 cursor-pointer"
             @click="slideChange(index + 1)">
             {{ i.name }}
           </div>
@@ -40,10 +40,14 @@
         AboutUs.arr[0].name
       }}</SlideTitie>
       <div
-        class="d-flex align-items-center justify-content-around mx-auto"
-        style="max-width: var(--content-max-width)">
+        class="d-grid align-items-center justify-content-around mx-auto"
+        style="
+          max-width: var(--content-max-width);
+          grid-template-columns: repeat(2, 1fr);
+          gap: 5rem;
+        ">
         <!-- 文案 -->
-        <div class="col-5" style="text-indent: 2em">
+        <div style="text-indent: 2em">
           <p>
             广东香龙香料有限公司成立于2006年，是香龙集团的核心子公司，总部位于广东省广州市。公司专注于香精香料的研发、生产和销售，为全球客户提供高品质、创新型的香精香料解决方案。
           </p>
@@ -57,7 +61,7 @@
         <!-- 图片 -->
         <img
           v-lazy="'/images/AboutUs/AboutUs2.webp'"
-          class="企业概况img col-5 rounded-4 shadow transition750" />
+          class="company-profile-img w-100 rounded-4 shadow transition750" />
       </div>
     </swiper-slide>
     <!-- 又一个CountUdp动画 -->
@@ -261,7 +265,10 @@
   ];
 </script>
 <style lang="scss" scoped>
-  .企业概况img:hover {
+  .slideChangeBtn:hover {
+    transform: translate(0px, -5px);
+  }
+  .company-profile-img:hover {
     transform: scale(1.03);
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5) !important;
   }
