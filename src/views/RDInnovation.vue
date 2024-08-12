@@ -80,15 +80,16 @@
         :rewind="true"
         :autoplay-delay="2500"
         :effect="'coverflow'"
-        :coverflow-effect-rotate="30"
+        :coverflow-effect-rotate="35"
         :coverflow-effect-stretch="0"
         :coverflow-effect-depth="100"
         :coverflow-effect-modifier="1"
         :coverflow-effect-slide-shadows="false"
-        class="w-75 overflow-hidden">
+        class="overflow-hidden"
+        style="max-width: var(--content-max-width)">
         <swiper-slide
           v-for="i in 16"
-          class="h-100 w-auto d-flex align-items-center justify-content-center rounded-5 overflow-hidden"
+          class="h-100 w-auto d-flex align-items-center justify-content-center rounded-5 overflow-hidden pt-0"
           style="aspect-ratio: 10 / 16">
           <el-image
             loading="lazy"

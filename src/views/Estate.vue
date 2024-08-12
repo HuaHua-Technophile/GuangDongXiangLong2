@@ -27,20 +27,17 @@
         </RouterLink>
       </div>
     </swiper-slide>
-    <!-- 食品配料 -->
+    <!-- 烟用香精 -->
     <swiper-slide class="d-flex flex-column justify-content-evenly">
-      <SlideTitie data-swiper-parallax="-600">食品配料</SlideTitie>
+      <SlideTitie data-swiper-parallax="-600">烟用香精</SlideTitie>
       <div
-        class="d-grid align-items-center mx-auto"
+        class="d-dlex justify-content-center mx-auto"
         style="
           max-width: var(--content-max-width);
           grid-template-columns: repeat(2, 1fr);
           gap: 5rem;
         ">
-        <img
-          v-lazy="'/images/Estate/Estate2.webp'"
-          class="EstateImg transition750 w-100 rounded-4 shadow" />
-        <div style="text-indent: 2rem" data-swiper-parallax="-300">
+        <div class="text-center" data-swiper-parallax="-300">
           <p>
             广东香龙香料有限公司致力于为全球食品行业提供高品质的食品配料解决方案。我们秉承“创新引领，健康生活”的核心理念，专注于饮料、乳品、烘焙、休闲食品等领域的研发、设计与应用，提供一站式综合解决方案。我们的主要产品涵盖果酱、果粒、果脯、罐头、分子料理等多个系列，种类丰富，品质卓越。
           </p>
@@ -51,6 +48,10 @@
             选择香龙香料，就是选择健康、美味与创新。我们将继续以高标准的质量和卓越的服务，为客户创造更多价值，共同推动食品行业的可持续发展。
           </p>
         </div>
+        <img
+          v-lazy="'/images/Estate/Estate5.webp'"
+          class="EstateImg transition750 w-75 d-block mx-auto rounded-4 shadow object-fit-cover"
+          style="aspect-ratio: 10 / 3; object-position: center 70%" />
       </div>
     </swiper-slide>
     <!-- 食品用香精 -->
@@ -87,17 +88,20 @@
         </div>
       </div>
     </swiper-slide>
-    <!-- 烟用香精 -->
+    <!-- 食品配料 -->
     <swiper-slide class="d-flex flex-column justify-content-evenly">
-      <SlideTitie data-swiper-parallax="-600">烟用香精</SlideTitie>
+      <SlideTitie data-swiper-parallax="-600">食品配料</SlideTitie>
       <div
-        class="d-dlex justify-content-center mx-auto"
+        class="d-grid align-items-center mx-auto"
         style="
           max-width: var(--content-max-width);
           grid-template-columns: repeat(2, 1fr);
           gap: 5rem;
         ">
-        <div class="text-center" data-swiper-parallax="-300">
+        <img
+          v-lazy="'/images/Estate/Estate2.webp'"
+          class="EstateImg transition750 w-100 rounded-4 shadow" />
+        <div style="text-indent: 2rem" data-swiper-parallax="-300">
           <p>
             广东香龙香料有限公司致力于为全球食品行业提供高品质的食品配料解决方案。我们秉承“创新引领，健康生活”的核心理念，专注于饮料、乳品、烘焙、休闲食品等领域的研发、设计与应用，提供一站式综合解决方案。我们的主要产品涵盖果酱、果粒、果脯、罐头、分子料理等多个系列，种类丰富，品质卓越。
           </p>
@@ -108,10 +112,6 @@
             选择香龙香料，就是选择健康、美味与创新。我们将继续以高标准的质量和卓越的服务，为客户创造更多价值，共同推动食品行业的可持续发展。
           </p>
         </div>
-        <img
-          v-lazy="'/images/Estate/Estate5.webp'"
-          class="EstateImg transition750 w-75 d-block mx-auto rounded-4 shadow object-fit-cover"
-          style="aspect-ratio: 10 / 3; object-position: center 70%" />
       </div>
     </swiper-slide>
     <!-- 旗下其他企业 -->
