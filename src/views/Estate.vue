@@ -126,7 +126,9 @@
         class="d-grid mx-auto"
         style="grid-template-columns: repeat(2, 1fr); gap: 1.5rem 15rem"
         data-swiper-parallax="-300">
-        <div v-for="i in companys" class="d-flex align-items-center">
+        <div
+          v-for="i in companys"
+          class="SubsidiaryEnterprise transition750 d-flex align-items-center">
           <div
             class="bg-xlxl p-2 rounded-circle me-3"
             style="width: 1rem; height: 1rem"></div>
@@ -162,5 +164,10 @@
   .EstateImg:hover {
     transform: scale(1.03);
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5) !important;
+  }
+  .SubsidiaryEnterprise:hover {
+    transform: translate(-10px, 0px);
+    color: var(--bs-xlxl);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important;
   }
 </style>
