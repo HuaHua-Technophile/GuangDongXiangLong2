@@ -66,3 +66,7 @@ $count: ceil(calc(($start-size - $end-size) / $step));
   background-position: center;
   background-size: cover;
 }
+swiper-slide,
+.swiper-slide-pt {
+  padding-top: 4.5rem;
+}

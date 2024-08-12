@@ -6,9 +6,9 @@
     <!-- 首屏大图 -->
     <swiper-slide
       v-lazy:background-image="'/images/AboutUs/AboutUs1.jpg'"
-      style="background-position: center; background-size: cover">
+      class="bgimg-center-cover pt-0">
       <div
-        class="w-100 h-100 border d-flex flex-column text-white position-relative"
+        class="w-100 h-100 d-flex flex-column text-white position-relative"
         style="
           backdrop-filter: blur(4px);
           text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
@@ -74,10 +74,10 @@
     <!-- 发展与战略 -->
     <swiper-slide
       v-lazy:background-image="'/images/AboutUs/AboutUs3.webp'"
-      style="background-position: center; background-size: cover">
+      class="bgimg-center-cover pt-0">
       <div
-        class="w-100 h-100 d-flex flex-column justify-content-evenly bg-white bg-opacity-50"
-        style="padding-top: 4.5rem; backdrop-filter: blur(10px)">
+        class="w-100 h-100 d-flex flex-column justify-content-evenly bg-white bg-opacity-50 swiper-slide-pt"
+        style="backdrop-filter: blur(10px)">
         <SlideTitie data-swiper-parallax="-600">{{
           AboutUs.arr[1].name
         }}</SlideTitie>
@@ -126,10 +126,10 @@
     <!-- 企业文化 -->
     <swiper-slide
       v-lazy:background-image="'/images/AboutUs/AboutUs5.webp'"
-      style="background-position: center; background-size: cover">
+      class="bgimg-center-cover pt-0">
       <div
-        class="w-100 h-100 d-flex flex-column justify-content-evenly bg-white bg-opacity-25"
-        style="padding-top: 4.5rem; backdrop-filter: blur(10px)">
+        class="w-100 h-100 d-flex flex-column justify-content-evenly bg-white bg-opacity-25 swiper-slide-pt"
+        style="backdrop-filter: blur(10px)">
         <SlideTitie data-swiper-parallax="-600">{{
           AboutUs.arr[3].name
         }}</SlideTitie>
@@ -163,7 +163,7 @@
       </div>
     </swiper-slide>
     <!-- 页脚 -->
-    <swiper-slide class="h-auto">
+    <swiper-slide class="h-auto pt-0">
       <Footer />
     </swiper-slide>
   </VerticalParallaxSwiper>

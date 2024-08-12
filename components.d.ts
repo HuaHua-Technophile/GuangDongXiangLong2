@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     CountUpData: typeof import('./src/components/CountUpData.vue')['default']
+    ElImage: typeof import('element-plus/es')['ElImage']
     FadeChangeSwiper: typeof import('./src/components/FadeChangeSwiper.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

@@ -80,7 +80,7 @@
           name: "产业板块",
         },
         {
-          path: "/Estate",
+          path: "/RDInnovation",
           name: "研发创新",
         },
       ],

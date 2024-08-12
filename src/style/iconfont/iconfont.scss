@@ -10,6 +10,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-yanfa:before {
+  content: "\e632";
+}
+
+.icon-zhuanli:before {
+  content: "\e617";
+}
+
+.icon-rongyu:before {
+  content: "\e6a2";
+}
+
 .icon-shiming:before {
   content: "\e601";
 }

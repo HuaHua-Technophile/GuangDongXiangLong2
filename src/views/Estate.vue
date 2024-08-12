@@ -3,12 +3,8 @@
     <!-- 首屏 -->
     <swiper-slide
       v-lazy:background-image="'/images/Estate/Estate1.webp'"
-      class="d-flex flex-column text-white"
-      style="
-        background-position: center;
-        background-size: cover;
-        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-      ">
+      class="d-flex flex-column text-white bgimg-center-cover"
+      style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5)">
       <h1
         class="flex-grow-1 d-flex justify-content-center align-items-center"
         style="font-size: 3rem; letter-spacing: 0.7rem"
@@ -59,11 +55,10 @@
     </swiper-slide>
     <!-- 食品用香精 -->
     <swiper-slide
-      class=""
       v-lazy:background-image="'/images/Estate/Estate3.webp'"
-      style="background-size: cover; background-position: center">
+      class="bgimg-center-cover pt-0">
       <div
-        class="w-100 h-100 d-flex flex-column justify-content-evenly bg-white bg-opacity-50">
+        class="w-100 h-100 d-flex flex-column justify-content-evenly bg-white bg-opacity-50 swiper-slide-pt">
         <SlideTitie data-swiper-parallax="-600">食品用香精</SlideTitie>
         <div
           class="d-grid align-items-center mx-auto"
@@ -137,7 +132,7 @@
       </div>
     </swiper-slide>
     <!-- 页脚 -->
-    <swiper-slide class="h-auto">
+    <swiper-slide class="h-auto pt-0">
       <Footer />
     </swiper-slide>
   </VerticalParallaxSwiper>

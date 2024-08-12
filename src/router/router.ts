@@ -18,6 +18,11 @@ const router = createRouter({
       name: "产业&技术",
       component: () => import("../views/Estate.vue"),
     },
+    {
+      path: "/RDInnovation",
+      name: "研发创新",
+      component: () => import("../views/RDInnovation.vue"),
+    },
   ],
 });
 

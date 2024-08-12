@@ -3,7 +3,7 @@
     ref="swiperOut"
     :swiperslidechange="SwiperOutSlideChange">
     <!-- 首屏大图轮播 -->
-    <swiper-slide class="w-100 h-100 overflow-hidden">
+    <swiper-slide class="w-100 h-100 overflow-hidden pt-0">
       <FadeChangeSwiper ref="fadeChangeSwiper" class="w-100 h-100">
         <swiper-slide
           v-for="i in firstSlide"
@@ -27,9 +27,7 @@
       </FadeChangeSwiper>
     </swiper-slide>
     <!-- 媒体中心 -->
-    <swiper-slide
-      class="MediaNews d-flex flex-column justify-content-evenly"
-      style="padding-top: 4.5rem">
+    <swiper-slide class="MediaNews d-flex flex-column justify-content-evenly">
       <SlideTitie data-swiper-parallax="-600">媒体中心</SlideTitie>
       <!-- 内容 -->
       <div
@@ -91,10 +89,12 @@
       </div>
     </swiper-slide>
     <!-- 产业和技术 -->
-    <swiper-slide v-lazy:background-image="'/images/Home/Labs1.webp'">
+    <swiper-slide
+      v-lazy:background-image="'/images/Home/Labs1.webp'"
+      class="pt-0">
       <div
-        style="backdrop-filter: blur(10px); padding-top: 4.5rem"
-        class="w-100 h-100 d-flex flex-column justify-content-evenly">
+        style="backdrop-filter: blur(10px)"
+        class="w-100 h-100 d-flex flex-column justify-content-evenly swiper-slide-pt">
         <SlideTitie data-swiper-parallax="-600">产业&技术</SlideTitie>
         <!-- 分类 -->
         <div
@@ -145,7 +145,7 @@
         data-swiper-parallax="-200" />
     </swiper-slide>
     <!-- 页脚 -->
-    <swiper-slide class="h-auto">
+    <swiper-slide class="h-auto pt-0">
       <Footer />
     </swiper-slide>
   </VerticalParallaxSwiper>
