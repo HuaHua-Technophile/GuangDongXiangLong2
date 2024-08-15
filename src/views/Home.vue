@@ -53,9 +53,9 @@
               style="font-size: 1.08rem">
               {{ mediaNews.data[0].title }}
             </div>
-            <div class="opacity-75 transition500">
+            <el-text line-clamp="2">
               {{ mediaNews.data[0].content }}
-            </div>
+            </el-text>
           </a>
         </div>
         <!-- 右边列表排列3个 -->
@@ -82,7 +82,9 @@
                 style="font-size: 1.08rem">
                 {{ i.title }}
               </div>
-              <div class="transition500">{{ i.content }}</div>
+              <el-text line-clamp="2">
+                {{ i.content }}
+              </el-text>
             </div>
           </a>
         </div>

@@ -23,6 +23,11 @@ const router = createRouter({
       name: "研发创新",
       component: () => import("../views/RDInnovation.vue"),
     },
+    {
+      path: "/MediaCenter",
+      name: "媒体中心",
+      component: () => import("../views/MediaCenter.vue"),
+    },
   ],
 });
 

@@ -86,12 +86,17 @@
       ],
     },
     {
-      path: "/",
-      name: "投资者关系",
-    },
-    {
-      path: "/",
       name: "媒体中心",
+      down: [
+        {
+          path: "/MediaCenter",
+          name: "企业新闻",
+        },
+        {
+          path: "/MediaCenter",
+          name: "行业动态",
+        },
+      ],
     },
     {
       path: "/",
