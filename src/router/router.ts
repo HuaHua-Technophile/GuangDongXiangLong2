@@ -10,8 +10,13 @@ const router = createRouter({
     },
     {
       path: "/AboutUs",
-      name: "关于我们",
+      name: "企业概览",
       component: () => import("../views/AboutUs.vue"),
+    },
+    {
+      path: "/Honor",
+      name: "企业荣誉",
+      component: () => import("../views/Honor.vue"),
     },
     {
       path: "/Estate",

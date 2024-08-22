@@ -12,6 +12,7 @@ declare module 'vue' {
     ElText: typeof import('element-plus/es')['ElText']
     FadeChangeSwiper: typeof import('./src/components/FadeChangeSwiper.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
+    LiveShotSwiper: typeof import('./src/components/LiveShotSwiper.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SlideTitie: typeof import('./src/components/SlideTitie.vue')['default']

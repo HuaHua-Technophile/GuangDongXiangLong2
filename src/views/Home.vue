@@ -49,7 +49,7 @@
               class="w-100 mb-3 mediaBigImg transition750 rounded-3 shadow"
               style="max-height: 20rem" />
             <div
-              class="fw-bold mb-3 opacity-75 title transition500"
+              class="title transition500 fw-bold mb-3 opacity-75"
               style="font-size: 1.08rem">
               {{ mediaNews.data[0].title }}
             </div>

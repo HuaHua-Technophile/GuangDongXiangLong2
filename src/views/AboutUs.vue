@@ -24,10 +24,10 @@
           style="max-width: var(--content-max-width)"
           data-swiper-parallax="-300">
           <div
-            v-for="(i, index) in AboutUs.arr"
+            v-for="(i, index) in arr"
             class="slideChangeBtn transition750 mx-3 cursor-pointer"
             @click="slideChange(index + 1)">
-            {{ i.name }}
+            {{ i }}
           </div>
         </div>
       </div>
@@ -102,27 +102,6 @@
         </div>
       </div>
     </swiper-slide>
-    <!-- 企业荣誉 -->
-    <swiper-slide class="d-flex flex-column justify-content-evenly">
-      <SlideTitie data-swiper-parallax="-600">{{
-        AboutUs.arr[2].name
-      }}</SlideTitie>
-      <div
-        class="d-grid justify-content-between mx-auto position-relative"
-        style="
-          max-width: var(--content-max-width);
-          grid-template-columns: repeat(3, auto);
-          gap: 2rem;
-        "
-        data-swiper-parallax="-300">
-        <div
-          v-for="i in honerText"
-          class="honer transition750 border shadow-sm rounded p-4">
-          <div class="bg-danger mb-3" style="width: 40px; height: 5px"></div>
-          {{ i }}
-        </div>
-      </div>
-    </swiper-slide>
     <!-- 企业文化 -->
     <swiper-slide
       v-lazy:background-image="'/images/AboutUs/AboutUs5.webp'"
@@ -130,9 +109,7 @@
       <div
         class="w-100 h-100 d-flex flex-column justify-content-evenly bg-white bg-opacity-25 swiper-slide-pt"
         style="backdrop-filter: blur(10px)">
-        <SlideTitie data-swiper-parallax="-600">{{
-          AboutUs.arr[3].name
-        }}</SlideTitie>
+        <SlideTitie data-swiper-parallax="-600">企业文化</SlideTitie>
         <div
           class="d-flex align-items-center justify-content-between mx-auto"
           style="width: var(--content-max-width)">
@@ -174,6 +151,9 @@
   import AboutUs from "../data/AboutUs.json";
   import { ref } from "vue";
   import { Swiper } from "swiper/types";
+
+  const arr = ["企业概况", "发展与战略", "企业文化"];
+
   const swiperOut = ref<{ swiperOut: SwiperContainer }>();
   const slideChange = (index: number) => {
     index > 1 ? (index += 1) : null;
@@ -224,17 +204,7 @@
         "公司视人才为最宝贵的资产，注重员工的培养与发展。香龙香料将通过多种途径提高员工的专业素质和综合能力，营造良好的企业文化，激发员工的创新精神和工作热情。通过人才战略的实施，公司将确保持续的竞争优势和长远的发展动力。",
     },
   ];
-  // 资质与荣誉-------------
-  const honerText = [
-    '2023年，香龙香料荣获 广东省科学厅、广东省财政厅 颁发的"高新技术企业"称号',
-    '2017年，香龙香料荣获"白云区江高镇纳税大户铜奖"称号',
-    '2018年，香龙香料连续第二次，荣获"白云区江高镇纳税大户铜奖"称号',
-    '2019年，香龙香料连续第三次，荣获"白云区江高镇纳税大户铜奖"称号',
-    '2020年，香龙香料荣获"广东省守合同重信用企业"称号',
-    '2020年，香龙香料荣获 中国质量认证监督管理中心 颁发的"AAA级别企业信用"称号',
-    '2020年，香龙香料荣获 中国质量认证监督管理中心 颁发的"优秀产品质量奖"',
-    '2020年，香龙香料荣获 中国质量认证监督管理中心 颁发的"广东省行业十佳品牌"荣誉称号',
-  ];
+
   // 企业文化-----------------
   const cultureText = [
     {
