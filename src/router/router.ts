@@ -33,6 +33,12 @@ const router = createRouter({
       name: "媒体中心",
       component: () => import("../views/MediaCenter.vue"),
     },
+    {
+      path: "/MediaCenter/:id",
+      name: "新闻详情",
+      props: true,
+      component: () => import("../views/CompanyNew.vue"),
+    },
   ],
 });
 
