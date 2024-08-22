@@ -51,7 +51,6 @@
   </VerticalParallaxSwiper>
 </template>
 <script lang="ts" setup>
-  import AboutUs from "../data/AboutUs.json";
   // 资质与荣誉-------------
   const honerText = [
     '2023年，香龙香料荣获 广东省科学厅、广东省财政厅 颁发的"高新技术企业"称号',

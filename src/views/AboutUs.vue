@@ -17,7 +17,7 @@
           class="flex-grow-1 d-flex justify-content-center align-items-center"
           style="font-size: 3rem; letter-spacing: 0.7rem"
           data-swiper-parallax="-600">
-          关于我们
+          企业概况
         </h1>
         <div
           class="d-flex mx-auto fs-4 mb-3"
@@ -32,13 +32,11 @@
         </div>
       </div>
     </swiper-slide>
-    <!-- 企业概况 -->
+    <!-- 香龙香料 -->
     <swiper-slide
       class="d-flex flex-column justify-content-evenly"
       style="padding-top: 4.5rem">
-      <SlideTitie data-swiper-parallax="-600">{{
-        AboutUs.arr[0].name
-      }}</SlideTitie>
+      <SlideTitie data-swiper-parallax="-600">香龙香料</SlideTitie>
       <div
         class="d-grid align-items-center justify-content-around mx-auto"
         style="
@@ -78,9 +76,7 @@
       <div
         class="w-100 h-100 d-flex flex-column justify-content-evenly bg-white bg-opacity-50 swiper-slide-pt"
         style="backdrop-filter: blur(10px)">
-        <SlideTitie data-swiper-parallax="-600">{{
-          AboutUs.arr[1].name
-        }}</SlideTitie>
+        <SlideTitie data-swiper-parallax="-600">发展与战略</SlideTitie>
         <div
           class="d-grid justify-content-between mx-auto position-relative"
           style="
@@ -148,11 +144,10 @@
 <script lang="ts" setup>
   import { SwiperContainer } from "swiper/element";
   import companyData from "../data/companyData.json";
-  import AboutUs from "../data/AboutUs.json";
   import { ref } from "vue";
   import { Swiper } from "swiper/types";
 
-  const arr = ["企业概况", "发展与战略", "企业文化"];
+  const arr = ["香龙香料", "发展与战略", "企业文化"];
 
   const swiperOut = ref<{ swiperOut: SwiperContainer }>();
   const slideChange = (index: number) => {
