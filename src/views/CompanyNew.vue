@@ -34,10 +34,9 @@
         v-lazy="content?.img"
         class="w-75 rounded-4 shadow d-block mx-auto" />
       <h1 class="text-center my-5">{{ content?.title }}</h1>
-      <div
-        v-html="content?.content"
-        class="fs-5"
-        style="text-indent: 2rem"></div>
+      <p v-for="i in content?.content" class="fs-5" style="text-indent: 2rem">
+        {{ i }}
+      </p>
     </div>
     <Footer />
   </div>
