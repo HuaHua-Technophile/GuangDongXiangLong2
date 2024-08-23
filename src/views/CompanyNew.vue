@@ -33,10 +33,15 @@
       <img
         v-lazy="content?.img"
         class="w-75 rounded-4 shadow d-block mx-auto" />
-      <h2 class="text-center my-5 fw-bold opacity-75">{{ content?.title }}</h2>
+      <h2 class="text-center mt-5 fw-bold opacity-75">
+        {{ content?.title }}
+      </h2>
+      <div class="text-center opacity-50 mt-4 mb-5">
+        {{ content?.date.slice(0, 10) }}
+      </div>
       <p
         v-for="i in content?.content"
-        class="fs-5 opacity-75"
+        class="fs-5 opacity-75 mt-4"
         style="text-indent: 2rem">
         {{ i }}
       </p>

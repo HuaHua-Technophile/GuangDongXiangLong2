@@ -255,17 +255,6 @@
 </script>
 <style lang="scss" scoped>
   .SlideTitle {
-    &::before {
-      content: "";
-      display: block;
-      background: white;
-      width: 7rem;
-      height: 1rem;
-      box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
-      position: absolute;
-      top: -4rem;
-      left: -6rem;
-    }
     & {
       text-indent: -6em;
     }
