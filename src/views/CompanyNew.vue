@@ -46,10 +46,18 @@
 </template>
 <script lang="ts" setup>
   import { useRoute } from "vue-router";
-  import CompanyNews from "../data/CompanyNews.json";
+  import companyNews from "../data/CompanyNews.json";
+  import mediaNews from "../data/MediaNews.json";
 
   const route = useRoute();
 
-  const newsId = route.params.id;
-  const content = CompanyNews.data.find((item) => item.id === newsId);
+  const newsId = Number(route.params.id);
+  const content = [...mediaNews.data, ...companyNews.data].find(
+    (item) => "id" in item && item.id == newsId
+  );
 </script>
+<style lang="scss" scoped>
+  .urlChangeBtn:hover {
+    transform: translate(0px, -5px);
+  }
+</style>

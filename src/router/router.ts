@@ -39,6 +39,12 @@ const router = createRouter({
       props: true,
       component: () => import("../views/CompanyNew.vue"),
     },
+    {
+      path: "/SustainableDev",
+      name: "可持续发展",
+      props: true,
+      component: () => import("../views/SustainableDev.vue"),
+    },
   ],
 });
 

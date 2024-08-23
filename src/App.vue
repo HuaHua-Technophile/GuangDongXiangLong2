@@ -99,16 +99,8 @@
       ],
     },
     {
-      path: "/",
+      path: "/SustainableDev",
       name: "可持续发展",
-    },
-    {
-      path: "/",
-      name: "招贤纳士",
-    },
-    {
-      path: "/",
-      name: "联系方式",
     },
   ];
 </script>

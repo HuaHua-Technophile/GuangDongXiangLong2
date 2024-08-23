@@ -39,54 +39,65 @@
         ">
         <!-- 左边大图 -->
         <div data-swiper-parallax="-400">
-          <a
-            :href="mediaNews.data[0].url"
-            target="_blank"
+          <component
+            :is="allNews[0].id ? RouterLink : 'a'"
+            :to="
+              allNews[0].id
+                ? { name: '新闻详情', params: { id: allNews[0].id } }
+                : undefined
+            "
+            :href="allNews[0].url ? allNews[0].url : undefined"
+            :target="allNews[0].url ? '_blank' : undefined"
             rel="noopener noreferrer"
             class="text-black text-decoration-none">
             <img
-              v-lazy="mediaNews.data[0].img"
+              v-lazy="allNews[0].img"
               class="w-100 mb-3 mediaBigImg transition750 rounded-3 shadow"
               style="max-height: 20rem" />
             <div
               class="title transition500 fw-bold mb-3 opacity-75"
               style="font-size: 1.08rem">
-              {{ mediaNews.data[0].title }}
+              {{ allNews[0].title }}
             </div>
             <el-text line-clamp="2">
-              {{ mediaNews.data[0].content }}
+              {{ allNews[0].content[0] }}
             </el-text>
-          </a>
+          </component>
         </div>
         <!-- 右边列表排列3个 -->
         <div data-swiper-parallax="-200">
-          <a
-            v-for="(i, index) in mediaNews.data.slice(0, 3)"
-            :href="i.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="d-flex text-black text-decoration-none align-items-center px-4"
-            :class="[index < 2 ? 'dividing-line' : '']">
-            <div
-              class="bg-xlxl me-4 flex-shrink-0 d-flex flex-column align-items-center justify-content-center text-white"
-              style="width: 5rem; height: 6rem">
-              <div>{{ monthAbbreviation(i.date.slice(5, 7)) }}</div>
+          <template v-for="(i, index) in allNews.slice(0, 3)">
+            <component
+              :is="i.id ? RouterLink : 'a'"
+              :to="
+                i.id ? { name: '新闻详情', params: { id: i.id } } : undefined
+              "
+              :href="i.url ? i.url : undefined"
+              :target="i.url ? '_blank' : undefined"
+              rel="noopener noreferrer"
+              class="d-flex align-items-center text-black text-decoration-none px-4 cursor-pointer"
+              :class="[index < 2 ? 'dividing-line' : '']">
               <div
-                class="bg-white bg-opacity-50 my-2"
-                style="width: 3rem; height: 1px"></div>
-              <div class="fs-3">{{ i.date.slice(8, 10) }}</div>
-            </div>
-            <div class="opacity-75">
-              <div
-                class="fw-bold mb-3 title transition500"
-                style="font-size: 1.08rem">
-                {{ i.title }}
+                class="bg-xlxl me-4 flex-shrink-0 d-flex flex-column align-items-center justify-content-center text-white"
+                style="width: 5rem; height: 6rem">
+                <div>{{ monthAbbreviation(i.date.slice(5, 7)) }}</div>
+                <div
+                  class="bg-white bg-opacity-50 my-2"
+                  style="width: 3rem; height: 1px"></div>
+                <div class="fs-3">{{ i.date.slice(8, 10) }}</div>
               </div>
-              <el-text line-clamp="2">
-                {{ i.content }}
-              </el-text>
-            </div>
-          </a>
+              <div class="opacity-75">
+                <div
+                  class="fw-bold mb-3 title transition500"
+                  style="font-size: 1.08rem">
+                  {{ i.title }}
+                </div>
+                <el-text line-clamp="2">
+                  {{ i.content[0] }}
+                </el-text>
+              </div>
+            </component>
+          </template>
         </div>
       </div>
     </swiper-slide>
@@ -153,9 +164,11 @@
   </VerticalParallaxSwiper>
 </template>
 <script lang="ts" setup>
+  import { RouterLink } from "vue-router";
   import { SwiperContainer } from "swiper/element";
   import { onMounted, ref } from "vue";
   import mediaNews from "../data/MediaNews.json";
+  import companyNews from "../data/CompanyNews.json";
   import { Swiper } from "swiper/types";
   import companyData from "../data/companyData.json";
   //首屏数据------------------
@@ -176,6 +189,20 @@
   const fadeChangeSwiper = ref<{ swiperContainer: SwiperContainer }>();
   onMounted(() => {
     fadeChangeSwiper.value?.swiperContainer.initialize();
+  });
+  // 获取全部新闻------------
+  // 媒体中心------------------
+  const allNews: {
+    id?: number;
+    url?: string;
+    img: string;
+    date: string;
+    title: string;
+    content: string[];
+  }[] = [...mediaNews.data, ...companyNews.data].sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateB.getTime() - dateA.getTime();
   });
 
   // 月份转换-----------

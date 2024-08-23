@@ -15,8 +15,8 @@
     "countup.js": "^2.8.0",
     "element-plus": "^2.8.0",
     "scss": "^0.2.4",
-    "swiper": "^11.1.9",
-    "vue": "^3.4.36",
+    "swiper": "^11.1.10",
+    "vue": "^3.4.38",
     "vue-lazyload": "^3.0.0",
     "vue-router": "^4.4.3"
   },
@@ -25,8 +25,8 @@
     "@vue/tsconfig": "^0.5.1",
     "typescript": "^5.5.4",
     "unplugin-auto-import": "^0.18.2",
-    "unplugin-vue-components": "^0.27.3",
-    "vite": "^5.3.5",
+    "unplugin-vue-components": "^0.27.4",
+    "vite": "^5.4.2",
     "vue-tsc": "^2.0.29"
   }
 }

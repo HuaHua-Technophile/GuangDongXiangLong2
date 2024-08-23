@@ -15,23 +15,23 @@
         class="d-flex mx-auto fs-4 mb-3"
         style="max-width: var(--content-max-width)"
         data-swiper-parallax="-300">
-        <RouterLink
-          to="/MediaCenter"
+        <a
+          href="#企业新闻"
           class="urlChangeBtn transition750 mx-3 text-white text-decoration-none">
           企业新闻
-        </RouterLink>
-        <RouterLink
-          to="/MediaCenter"
+        </a>
+        <a
+          href="#行业动态"
           class="urlChangeBtn transition750 mx-3 text-white text-decoration-none">
           行业动态
-        </RouterLink>
+        </a>
       </div>
     </div>
     <!-- 企业新闻 -->
-    <SlideTitie class="my-5">企业新闻</SlideTitie>
+    <SlideTitie class="my-5" id="企业新闻">企业新闻</SlideTitie>
     <NewsCard :data="CompanyNews" />
     <!-- 行业动态 -->
-    <SlideTitie class="my-5">行业动态</SlideTitie>
+    <SlideTitie class="my-5" id="行业动态">行业动态</SlideTitie>
     <NewsCard :data="mediaNews" />
     <Footer />
   </div>
@@ -40,3 +40,9 @@
   import mediaNews from "../data/MediaNews.json";
   import CompanyNews from "../data/CompanyNews.json";
 </script>
+
+<style lang="scss" scoped>
+  .urlChangeBtn:hover {
+    transform: translate(0px, -5px);
+  }
+</style>
