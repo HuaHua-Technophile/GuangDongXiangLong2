@@ -14,7 +14,6 @@ declare module 'vue' {
     Footer: typeof import('./src/components/Footer.vue')['default']
     LiveShotSwiper: typeof import('./src/components/LiveShotSwiper.vue')['default']
     NewsCard: typeof import('./src/components/NewsCard.vue')['default']
-    NewsContent: typeof import('./src/components/NewsContent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SlideTitie: typeof import('./src/components/SlideTitie.vue')['default']
