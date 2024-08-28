@@ -102,6 +102,10 @@
       path: "/SustainableDev",
       name: "可持续发展",
     },
+    {
+      path: "/ContactUs",
+      name: "联系方式",
+    },
   ];
 </script>
 <style lang="scss" scoped>

@@ -45,6 +45,12 @@ const router = createRouter({
       props: true,
       component: () => import("../views/SustainableDev.vue"),
     },
+    {
+      path: "/ContactUs",
+      name: "联系方式",
+      props: true,
+      component: () => import("../views/ContactUs.vue"),
+    },
   ],
 });
 
