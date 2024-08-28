@@ -83,6 +83,10 @@
           path: "/RDInnovation",
           name: "研发创新",
         },
+        {
+          path: "/ProductList",
+          name: "产品列表",
+        },
       ],
     },
     {

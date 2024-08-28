@@ -1,6 +1,6 @@
 <template>
   <!-- 页脚,并且两个分层 -->
-  <div class="bg-xlxl bg-opacity-75 text-white">
+  <div class="vw-100 overflow-hidden bg-xlxl bg-opacity-75 text-white">
     <div
       class="py-3 mx-auto d-flex flex-column align-items-center"
       style="max-width: 800px">

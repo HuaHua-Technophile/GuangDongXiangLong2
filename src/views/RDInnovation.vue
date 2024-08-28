@@ -25,6 +25,11 @@
           class="urlChangeBtn transition750 mx-3 text-white text-decoration-none">
           研发创新
         </RouterLink>
+        <RouterLink
+          to="/ProductList"
+          class="urlChangeBtn transition750 mx-3 text-white text-decoration-none">
+          产品列表
+        </RouterLink>
       </div>
     </swiper-slide>
     <!-- 创新成果 -->

@@ -29,6 +29,11 @@ const router = createRouter({
       component: () => import("../views/RDInnovation.vue"),
     },
     {
+      path: "/ProductList",
+      name: "产品列表",
+      component: () => import("../views/ProductList.vue"),
+    },
+    {
       path: "/MediaCenter",
       name: "媒体中心",
       component: () => import("../views/MediaCenter.vue"),
@@ -36,19 +41,16 @@ const router = createRouter({
     {
       path: "/MediaCenter/:id",
       name: "新闻详情",
-      props: true,
       component: () => import("../views/CompanyNew.vue"),
     },
     {
       path: "/SustainableDev",
       name: "可持续发展",
-      props: true,
       component: () => import("../views/SustainableDev.vue"),
     },
     {
       path: "/ContactUs",
       name: "联系方式",
-      props: true,
       component: () => import("../views/ContactUs.vue"),
     },
   ],

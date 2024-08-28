@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="vw-100 overflow-hidden">
     <!-- 首屏大图 -->
     <div
       v-lazy:background-image="'/images/MediaCenter/MediaCenter2.webp'"
@@ -27,10 +27,10 @@
         </a>
       </div>
     </div>
-    <!-- 企业新闻 -->
+
     <SlideTitie class="my-5" id="企业新闻">企业新闻</SlideTitie>
     <NewsCard :data="CompanyNews" />
-    <!-- 行业动态 -->
+
     <SlideTitie class="my-5" id="行业动态">行业动态</SlideTitie>
     <NewsCard :data="mediaNews" />
     <Footer />
