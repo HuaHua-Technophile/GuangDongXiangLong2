@@ -16,16 +16,22 @@
       </div>
     </swiper-slide>
     <!-- 具体联系方式 -->
-    <swiper-slide class="h-auto pb-5">
+    <swiper-slide class="d-flex align-items-center">
       <div
         class="mx-auto bg-secondary bg-opacity-25 p-5 rounded-5 shadow"
-        style="width: calc(var(--content-max-width) / 1.7)">
-        <div class="text-center fs-2 fw-bold">Contact Us</div>
-        <div class="text-center mb-5 opacity-50">
+        style="width: calc(var(--content-max-width) / 1.7)"
+        data-swiper-parallax="-200">
+        <div class="text-center fs-2 fw-bold" data-swiper-parallax="-250">
+          Contact Us
+        </div>
+        <div class="text-center mb-5 opacity-50" data-swiper-parallax="-300">
           We Look Forward to Hearing from You
         </div>
         <div>
-          <div v-for="i in ContactInfo" class="d-flex align-items-center mb-3">
+          <div
+            v-for="(i, index) in ContactInfo"
+            class="d-flex align-items-center mb-3"
+            :data-swiper-parallax="-300 - index * 70">
             <div class="flex-shrink-0 fw-bold" style="width: 10rem">
               {{ i.title }}
             </div>
