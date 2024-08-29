@@ -42,7 +42,10 @@
           grid-template-columns: repeat(2, 1fr);
           gap: 5rem;
         ">
-        <div class="text-center" data-swiper-parallax="-300">
+        <div
+          class="mx-auto"
+          style="text-indent: 2rem; width: calc(var(--content-max-width) * 0.9)"
+          data-swiper-parallax="-300">
           <p>
             广东香龙香料有限公司致力于为全球食品行业提供高品质的食品配料解决方案。我们秉承“创新引领，健康生活”的核心理念，专注于饮料、乳品、烘焙、休闲食品等领域的研发、设计与应用，提供一站式综合解决方案。我们的主要产品涵盖果酱、果粒、果脯、罐头、分子料理等多个系列，种类丰富，品质卓越。
           </p>
