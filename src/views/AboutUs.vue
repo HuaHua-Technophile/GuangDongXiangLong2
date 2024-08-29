@@ -248,10 +248,7 @@
   .rotateBall {
     animation: rotateBall 15s linear infinite;
   }
-  .honer:hover {
-    transform: translate(0px, -5px);
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3) !important;
-  }
+
   .cultureIcon:hover {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5) !important;
     border-width: 0.9rem !important;

@@ -15,7 +15,7 @@
     "countup.js": "^2.8.0",
     "element-plus": "^2.8.1",
     "scss": "^0.2.4",
-    "swiper": "^11.1.10",
+    "swiper": "^11.1.11",
     "vue": "^3.4.38",
     "vue-lazyload": "^3.0.0",
     "vue-router": "^4.4.3"

@@ -63,3 +63,9 @@
     '2020年，香龙香料荣获 中国质量认证监督管理中心 颁发的"广东省行业十佳品牌"荣誉称号',
   ];
 </script>
+<style lang="scss" scoped>
+  .honer:hover {
+    transform: translate(0px, -5px);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3) !important;
+  }
+</style>

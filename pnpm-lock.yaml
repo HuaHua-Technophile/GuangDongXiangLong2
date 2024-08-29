@@ -27,8 +27,8 @@ importers:
         specifier: ^0.2.4
         version: 0.2.4
       swiper:
-        specifier: ^11.1.10
-        version: 11.1.10
+        specifier: ^11.1.11
+        version: 11.1.11
       vue:
         specifier: ^3.4.38
         version: 3.4.38(typescript@5.5.4)
@@ -696,8 +696,8 @@ packages:
   strip-literal@2.1.0:
     resolution: {integrity: sha512-Op+UycaUt/8FbN/Z2TWPBLge3jWrP3xj10f3fnYxf052bKuS3EKs1ZQcVGjnEMdsNVAM+plXRdmjrZ/KgG3Skw==}
 
-  swiper@11.1.10:
-    resolution: {integrity: sha512-pAVM6vCb6bumj2B9aSh67l3wP1j5YR8dPQM1YhQKMpnBc33vs+RpyVz6NZYZl/ZopCBSYbbWK5nvESwbmU0QXQ==}
+  swiper@11.1.11:
+    resolution: {integrity: sha512-077Aw3OrlZpkkBRf/6+44bGh/HZY/vsLEyate2db2KkJgYUIR5TvDgvvhcJtW/puXzw79w5KBc30DauEX6GZYQ==}
     engines: {node: '>= 4.7.0'}
 
   to-fast-properties@2.0.0:
@@ -1406,7 +1406,7 @@ snapshots:
     dependencies:
       js-tokens: 9.0.0
 
-  swiper@11.1.10: {}
+  swiper@11.1.11: {}
 
   to-fast-properties@2.0.0: {}
 
