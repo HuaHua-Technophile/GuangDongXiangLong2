@@ -1,12 +1,12 @@
 <template>
   <div
-    class="d-grid mx-auto"
+    class="d-flex justify-content-center mx-auto"
     style="
       max-width: var(--content-max-width);
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 20px;
+      /* grid-template-columns: repeat(3, 1fr); */
+      /* grid-gap: 20px; */
       /* grid-auto-rows: auto; */
-      grid-template-rows: masonry;
+      /* grid-template-rows: masonry; */
     ">
     <template v-for="i in props.data.data">
       <component
@@ -17,6 +17,7 @@
         rel="noopener noreferrer"
         class="MediaNews transition500 h-auto d-block text-decoration-none text-black cursor-pointer"
         style="
+          width: 33% !important;
           break-inside: avoid;
           background: #f1f1f1;
           border-radius: 8px;

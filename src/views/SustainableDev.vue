@@ -16,22 +16,32 @@
       </div>
     </swiper-slide>
     <!-- 可持续发展 -->
-    <swiper-slide class="d-flex flex-column justify-content-evenly">
+    <swiper-slide
+      class="d-flex flex-column align-items-center justify-content-evenly">
       <SlideTitie data-swiper-parallax="-600">可持续发展</SlideTitie>
       <div
-        class="mx-auto fs-4 fw-bold opacity-75"
-        style="max-width: var(--content-max-width)"
+        class="mx-auto fs-5 fw-bold opacity-75"
+        style="max-width: calc(var(--content-max-width) * 0.8)"
         data-swiper-parallax="-300">
         香龙香料始终坚持将可持续发展融入企业的核心战略。我们通过全面实施绿色生产技术，减少碳排放，优化资源利用率，以保护环境为己任。公司所有项目都严格遵循环保标准，确保在经济增长的同时为社会和环境创造积极影响。我们的目标是通过负责任的生产方式，实现经济、生态与社会的和谐发展。
       </div>
+      <img
+        v-lazy="'/images/SustainableDev/SustainableDev7.webp'"
+        class="rounded-3 shadow object-fit-cover"
+        style="
+          object-position: center 53%;
+          height: 60% !important;
+          width: 70% !important;
+        "
+        data-swiper-parallax="-200" />
     </swiper-slide>
     <!-- 我们的战略 -->
     <swiper-slide
       class="d-flex flex-column align-items-center justify-content-evenly">
       <SlideTitie data-swiper-parallax="-600">我们的战略</SlideTitie>
       <div
-        class="mx-auto fw-bold opacity-75"
-        style="max-width: var(--content-max-width)"
+        class="mx-auto fs-5 fw-bold opacity-75"
+        style="max-width: calc(var(--content-max-width) * 0.8)"
         data-swiper-parallax="-400">
         香龙香料致力于构建绿色可持续发展的产业生态。公司不断推动创新技术的应用，开发天然环保的香精香料解决方案，减少对化学合成物质的依赖。我们秉承ESG理念，努力成为推动绿色发展的行业先锋。通过绿色科技与创新，香龙香料将继续引领行业，助力全球健康与环保事业的发展。
       </div>

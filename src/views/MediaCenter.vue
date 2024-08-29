@@ -27,10 +27,8 @@
         </a>
       </div>
     </div>
-
     <SlideTitie class="my-5" id="企业新闻">企业新闻</SlideTitie>
     <NewsCard :data="CompanyNews" />
-
     <SlideTitie class="my-5" id="行业动态">行业动态</SlideTitie>
     <NewsCard :data="mediaNews" />
     <Footer />
