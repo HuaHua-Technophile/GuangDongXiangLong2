@@ -63,12 +63,12 @@
           v-for="j in i.item"
           class="productItem transition750 d-flex flex-column align-items-center w-25 overflow-hidden">
           <img
-            v-lazy="j.img"
+            v-lazy="`/images/ProductList/${i.title}/${j}.webp`"
             class="w-100 h-100 rounded-5 shadow object-fit-cover"
             data-swiper-parallax="-200" />
           <div data-swiper-parallax="-300">
             <p class="transition750 fw-bold opacity-75 fs-3 mt-3 pb-4">
-              {{ j.name }}
+              {{ j }}
             </p>
           </div>
         </swiper-slide>
@@ -112,119 +112,72 @@
     {
       initialize: false,
       title: "烟草类",
-      item: [
-        { name: "烟膏", img: "/images/ProductList/YanChao/烟膏_1.webp" },
-        {
-          name: "烟油",
-          img: "/images/ProductList/YanChao/烟油_2.webp",
-        },
-        {
-          name: "烟酊",
-          img: "/images/ProductList/YanChao/烟酊.webp",
-        },
-      ],
+      item: ["烟膏", "烟油", "烟酊"],
     },
     {
       initialize: false,
       title: "蛋奶类",
       item: [
-        { name: "蛋糕", img: "/images/ProductList/DanNai/蛋糕_6.webp" },
-        {
-          name: "黄油（白脱，牛油）",
-          img: "/images/ProductList/DanNai/黄油（白脱，牛油）_7.webp",
-        },
-        { name: "鸡蛋", img: "/images/ProductList/DanNai/鸡蛋_1.webp" },
-        { name: "奶酪（芝士）", img: "/images/ProductList/DanNai/鸡蛋_1.webp" },
-        { name: "牛奶", img: "/images/ProductList/DanNai/奶酪（芝士）_2.webp" },
-        { name: "咸蛋黄", img: "/images/ProductList/DanNai/咸蛋黄_4.webp" },
-        { name: "椰奶", img: "/images/ProductList/DanNai/椰奶_5.webp" },
+        "蛋糕",
+        "黄油（白脱，牛油）",
+        "鸡蛋",
+        "奶酪（芝士）",
+        "牛奶",
+        "咸蛋黄",
+        "椰奶",
       ],
     },
     {
       initialize: false,
       title: "花茶类",
-      item: [
-        { name: "薄荷", img: "/images/ProductList/HuaCha/薄荷_6.webp" },
-        {
-          name: "桂花",
-          img: "/images/ProductList/HuaCha/桂花_7.webp",
-        },
-        { name: "红茶", img: "/images/ProductList/HuaCha/红茶_1.webp" },
-        { name: "绿茶", img: "/images/ProductList/HuaCha/绿茶_2.webp" },
-        { name: "玫瑰", img: "/images/ProductList/HuaCha/玫瑰_3.webp" },
-        { name: "茉莉", img: "/images/ProductList/HuaCha/茉莉_4.webp" },
-        { name: "樱花", img: "/images/ProductList/HuaCha/樱花_5.webp" },
-      ],
+      item: ["薄荷", "桂花", "红茶", "绿茶", "玫瑰", "茉莉", "樱花"],
     },
     {
       initialize: false,
       title: "坚果类",
-      item: [
-        { name: "核桃", img: "/images/ProductList/JianGuo/核桃_6.webp" },
-        {
-          name: "花生",
-          img: "/images/ProductList/JianGuo/花生_7.webp",
-        },
-        { name: "咖啡", img: "/images/ProductList/JianGuo/咖啡_1.webp" },
-        { name: "巧克力", img: "/images/ProductList/JianGuo/巧克力_2.webp" },
-        {
-          name: "杏仁",
-          img: "/images/ProductList/JianGuo/杏仁_3.webp",
-        },
-        { name: "燕麦", img: "/images/ProductList/JianGuo/燕麦_4.webp" },
-        { name: "芝麻", img: "/images/ProductList/JianGuo/芝麻_5.webp" },
-      ],
+      item: ["核桃", "花生", "咖啡", "巧克力", "杏仁", "燕麦", "芝麻"],
     },
     {
       initialize: false,
       title: "蔬果类",
       item: [
-        { name: "葱油", img: "/images/ProductList/ShuGuo/葱油_6.webp" },
-        {
-          name: "大蒜",
-          img: "/images/ProductList/ShuGuo/大蒜_7.webp",
-        },
-        { name: "枸杞", img: "/images/ProductList/ShuGuo/枸杞_8.webp" },
-        { name: "红豆", img: "/images/ProductList/ShuGuo/红豆_9.webp" },
-        { name: "红薯", img: "/images/ProductList/ShuGuo/红薯_10.webp" },
-        { name: "红枣", img: "/images/ProductList/ShuGuo/红枣_11.webp" },
-        { name: "黄瓜", img: "/images/ProductList/ShuGuo/黄瓜_12.webp" },
-        { name: "绿豆", img: "/images/ProductList/ShuGuo/绿豆_13.webp" },
-        { name: "枇杷", img: "/images/ProductList/ShuGuo/枇杷_1.webp" },
-        { name: "西红柿", img: "/images/ProductList/ShuGuo/西红柿_2.webp" },
-        { name: "香菇", img: "/images/ProductList/ShuGuo/香菇_3.webp" },
-        { name: "香芋", img: "/images/ProductList/ShuGuo/香芋_4.webp" },
-        { name: "玉米", img: "/images/ProductList/ShuGuo/玉米_5.webp" },
+        "葱油",
+        "大蒜",
+        "枸杞",
+        "红豆",
+        "红薯",
+        "红枣",
+        "黄瓜",
+        "绿豆",
+        "枇杷",
+        "西红柿",
+        "香菇",
+        "香芋",
+        "玉米",
       ],
     },
     {
       initialize: false,
       title: "水果类",
       item: [
-        { name: "百香果", img: "/images/ProductList/ShuiGuo/百香果_17.webp" },
-        {
-          name: "草莓",
-          img: "/images/ProductList/ShuiGuo/草莓_18.webp",
-        },
-        { name: "车厘子", img: "/images/ProductList/ShuiGuo/车厘子_1.webp" },
-        { name: "番石榴", img: "/images/ProductList/ShuiGuo/番石榴_2.webp" },
-        {
-          name: "柑橘",
-          img: "/images/ProductList/ShuiGuo/柑橘_3.webp",
-        },
-        { name: "哈密瓜", img: "/images/ProductList/ShuiGuo/哈密瓜_4.webp" },
-        { name: "蓝莓", img: "/images/ProductList/ShuiGuo/蓝莓_5.webp" },
-        { name: "荔枝", img: "/images/ProductList/ShuiGuo/荔枝_6.webp" },
-        { name: "榴莲", img: "/images/ProductList/ShuiGuo/榴莲_7.webp" },
-        { name: "芒果", img: "/images/ProductList/ShuiGuo/芒果_8.webp" },
-        { name: "柠檬", img: "/images/ProductList/ShuiGuo/柠檬_9.webp" },
-        { name: "苹果", img: "/images/ProductList/ShuiGuo/苹果_10.webp" },
-        { name: "葡萄", img: "/images/ProductList/ShuiGuo/葡萄_11.webp" },
-        { name: "水蜜桃", img: "/images/ProductList/ShuiGuo/水蜜桃_12.webp" },
-        { name: "西瓜", img: "/images/ProductList/ShuiGuo/西瓜_13.webp" },
-        { name: "鲜橙", img: "/images/ProductList/ShuiGuo/鲜橙_14.webp" },
-        { name: "香蕉", img: "/images/ProductList/ShuiGuo/香蕉_15.webp" },
-        { name: "椰子", img: "/images/ProductList/ShuiGuo/椰子_16.webp" },
+        "百香果",
+        "草莓",
+        "车厘子",
+        "番石榴",
+        "柑橘",
+        "哈密瓜",
+        "蓝莓",
+        "荔枝",
+        "榴莲",
+        "芒果",
+        "柠檬",
+        "苹果",
+        "葡萄",
+        "水蜜桃",
+        "西瓜",
+        "鲜橙",
+        "香蕉",
+        "椰子",
       ],
     },
   ]);

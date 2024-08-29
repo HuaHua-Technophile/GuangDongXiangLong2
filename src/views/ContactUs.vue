@@ -16,10 +16,15 @@
       </div>
     </swiper-slide>
     <!-- 具体联系方式 -->
-    <swiper-slide class="d-flex align-items-center">
+    <swiper-slide
+      v-lazy:background-image="'/images/ContactUs/ContactUs2.webp'"
+      class="bgimg-center-cover d-flex align-items-center">
       <div
-        class="mx-auto bg-secondary bg-opacity-25 p-5 rounded-5 shadow"
-        style="width: calc(var(--content-max-width) / 1.7)"
+        class="mx-auto bg-secondary bg-opacity-25 px-5 py-3 rounded-5 shadow"
+        style="
+          width: calc(var(--content-max-width) / 1.7);
+          backdrop-filter: blur(10px);
+        "
         data-swiper-parallax="-200">
         <div class="text-center fs-2 fw-bold" data-swiper-parallax="-250">
           Contact Us
@@ -36,7 +41,7 @@
               {{ i.title }}
             </div>
             <div
-              class="changeColor ms-4 ps-3 pb-3 border-bottom border-3 flex-1 opacity-75 transition750"
+              class="changeColor ms-4 ps-3 py-3 border-bottom border-3 flex-1 opacity-75 transition750"
               style="flex-grow: 1">
               {{ i.value }}
             </div>
@@ -50,16 +55,20 @@
   const ContactInfo = [
     {
       title: "Company Address",
+      value: "韶关市浈江区产业转移工业园峰谷路10号内3号厂房",
+    },
+    {
+      title: "",
       value:
         "Factory Building No. 3, Inside No. 10 Fenggu Road, Industrial Transfer Park, Zhenjiang District, Shaoguan City",
     },
     {
-      title: "",
-      value: "韶关市浈江区产业转移工业园峰谷路10号内3号厂房",
-    },
-    {
       title: "Contact Number",
       value: "0751-6528728",
+    },
+    {
+      title: "Phone Number",
+      value: "18023656583",
     },
     {
       title: "Email",
