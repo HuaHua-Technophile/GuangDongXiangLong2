@@ -119,8 +119,8 @@
           img: "/images/ProductList/YanChao/烟油_2.webp",
         },
         {
-          name: "烟油",
-          img: "/images/ProductList/YanChao/烟油_2.webp",
+          name: "烟酊",
+          img: "/images/ProductList/YanChao/烟酊.webp",
         },
       ],
     },
