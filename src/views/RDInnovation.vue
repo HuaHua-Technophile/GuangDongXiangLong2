@@ -36,8 +36,8 @@
     <swiper-slide class="d-flex flex-column justify-content-evenly">
       <SlideTitie data-swiper-parallax="-600">创新成果</SlideTitie>
       <div
-        class="mx-auto text-center"
-        style="max-width: var(--content-max-width)"
+        class="mx-auto"
+        style="text-indent: 2rem; max-width: var(--content-max-width)"
         data-swiper-parallax="-400">
         <p class="w-75 mx-auto">
           广东香龙香料有限公司始终以技术创新为企业发展的核心动力，凭借前瞻性的战略眼光，持续加大对产业链上下游技术的研究投入。公司在研发方面的专项资金占销售收入的比重逐年上升，尤其是在新设备引进和旧设备更新上的投入已达数亿人民币。我们建立了完善的技术研发人员培养体系和人才合作交流机制，通过系统化的研发项目全生命周期管理，确保技术研发的高效运作。

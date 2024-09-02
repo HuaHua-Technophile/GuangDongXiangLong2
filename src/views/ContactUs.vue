@@ -68,7 +68,7 @@
     },
     {
       title: "Phone Number",
-      value: "18023656583",
+      value: "+86-18023656583",
     },
     {
       title: "Email",

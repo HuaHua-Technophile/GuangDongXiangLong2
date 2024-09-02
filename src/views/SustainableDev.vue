@@ -21,7 +21,10 @@
       <SlideTitie data-swiper-parallax="-600">可持续发展</SlideTitie>
       <div
         class="mx-auto fs-5 fw-bold opacity-75"
-        style="max-width: calc(var(--content-max-width) * 0.8)"
+        style="
+          text-indent: 2.5rem;
+          max-width: calc(var(--content-max-width) * 0.8);
+        "
         data-swiper-parallax="-300">
         香龙香料始终坚持将可持续发展融入企业的核心战略。我们通过全面实施绿色生产技术，减少碳排放，优化资源利用率，以保护环境为己任。公司所有项目都严格遵循环保标准，确保在经济增长的同时为社会和环境创造积极影响。我们的目标是通过负责任的生产方式，实现经济、生态与社会的和谐发展。
       </div>

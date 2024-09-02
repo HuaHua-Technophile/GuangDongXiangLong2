@@ -68,7 +68,7 @@
             data-swiper-parallax="-200" />
           <div data-swiper-parallax="-300">
             <p class="transition750 fw-bold opacity-75 fs-3 mt-3 pb-4">
-              {{ j }}
+              {{ j }}香精
             </p>
           </div>
         </swiper-slide>
