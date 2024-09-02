@@ -37,42 +37,45 @@
     <!-- 产品列表 -->
     <swiper-slide
       v-for="i in productList"
-      class="d-flex flex-column justify-content-evenly">
-      <SlideTitie data-swiper-parallax="-600">{{ i.title }}</SlideTitie>
-      <swiper-container
-        ref="swiperInside"
-        :init="false"
-        :navigation="true"
-        :pagination="true"
-        :pagination-clickable="true"
-        :keyboard="false"
-        :slides-per-view="'auto'"
-        :centered-slides="true"
-        :rewind="true"
-        :autoplay-delay="2500"
-        :effect="'coverflow'"
-        :coverflow-effect-rotate="35"
-        :coverflow-effect-stretch="0"
-        :coverflow-effect-depth="0"
-        :coverflow-effect-modifier="1"
-        :coverflow-effect-slide-shadows="false"
-        class="overflow-hidden"
-        style="max-width: var(--content-max-width)"
-        data-swiper-parallax="-100">
-        <swiper-slide
-          v-for="j in i.item"
-          class="productItem transition750 d-flex flex-column align-items-center w-25 overflow-hidden">
-          <img
-            v-lazy="`/images/ProductList/${i.title}/${j}.webp`"
-            class="w-100 h-100 rounded-5 shadow object-fit-cover"
-            data-swiper-parallax="-200" />
-          <div data-swiper-parallax="-300">
-            <p class="transition750 fw-bold opacity-75 fs-3 mt-3 pb-4">
-              {{ j }}香精
-            </p>
-          </div>
-        </swiper-slide>
-      </swiper-container>
+      v-lazy:background-image="i.bg"
+      class="bgimg-center-cover pt-0">
+      <div
+        class="w-100 h-100 d-flex flex-column justify-content-evenly bg-white bg-opacity-25 swiper-slide-pt"
+        style="backdrop-filter: blur(8px)">
+        <SlideTitie data-swiper-parallax="-600">{{ i.title }}</SlideTitie>
+        <swiper-container
+          ref="swiperInside"
+          :init="false"
+          :navigation="true"
+          :pagination="true"
+          :pagination-clickable="true"
+          :keyboard="false"
+          :slides-per-view="'auto'"
+          :centered-slides="true"
+          :rewind="true"
+          :autoplay-delay="2500"
+          :effect="'coverflow'"
+          :coverflow-effect-rotate="35"
+          :coverflow-effect-stretch="0"
+          :coverflow-effect-depth="0"
+          :coverflow-effect-modifier="1"
+          :coverflow-effect-slide-shadows="false"
+          class="overflow-hidden"
+          style="max-width: var(--content-max-width)"
+          data-swiper-parallax="-100">
+          <swiper-slide
+            v-for="j in i.item"
+            class="productItem transition750 d-flex flex-column align-items-center w-25 overflow-hidden">
+            <img
+              v-lazy="`/images/ProductList/${i.title}/${j}.webp`"
+              class="w-100 h-100 rounded-5 shadow object-fit-cover"
+              data-swiper-parallax="-200" />
+            <div data-swiper-parallax="-300">
+              <p class="transition750 fw-bold fs-3 mt-3 pb-4">{{ j }}香精</p>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </div>
     </swiper-slide>
     <!-- 页脚 -->
     <swiper-slide class="h-auto pt-0">
@@ -112,11 +115,13 @@
     {
       initialize: false,
       title: "烟草类",
+      bg: "/images/ProductList/ProductList2.webp",
       item: ["烟膏", "烟油", "烟酊"],
     },
     {
       initialize: false,
       title: "蛋奶类",
+      bg: "/images/ProductList/ProductList3.webp",
       item: [
         "蛋糕",
         "黄油（白脱，牛油）",
@@ -130,16 +135,19 @@
     {
       initialize: false,
       title: "花茶类",
+      bg: "/images/ProductList/ProductList4.webp",
       item: ["薄荷", "桂花", "红茶", "绿茶", "玫瑰", "茉莉", "樱花"],
     },
     {
       initialize: false,
       title: "坚果类",
+      bg: "/images/ProductList/ProductList5.webp",
       item: ["核桃", "花生", "咖啡", "巧克力", "杏仁", "燕麦", "芝麻"],
     },
     {
       initialize: false,
       title: "蔬果类",
+      bg: "/images/ProductList/ProductList6.webp",
       item: [
         "葱油",
         "大蒜",
@@ -159,6 +167,7 @@
     {
       initialize: false,
       title: "水果类",
+      bg: "/images/ProductList/ProductList7.webp",
       item: [
         "百香果",
         "草莓",
@@ -188,7 +197,7 @@
   }
   .productItem:hover p {
     color: var(--bs-xlxl) !important;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.2);
     transform: translate(0px, -5px);
   }
 </style>
