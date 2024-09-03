@@ -147,7 +147,7 @@
       <SlideTitie data-swiper-parallax="-600">企业概览</SlideTitie>
       <div
         class="mx-auto fs-5"
-        style="width: var(--content-max-width)"
+        style="text-indent: 2.5rem; max-width: var(--content-max-width)"
         data-swiper-parallax="-400">
         广东香龙香料有限公司是一家专业从事香精香料研发、生产和销售的高新技术企业。公司成立于2006年，是香龙集团的核心子公司。我们的业务涵盖烟用香精、食用香精和植物提取物等领域，产品广泛应用于烟草、食品、日化等行业。凭借强大的研发实力、先进的生产设备和完善的质量管理体系，香龙香料已成为行业内的领军企业。我们致力于为客户提供高品质、创新型的香精香料解决方案，推动行业可持续发展。
       </div>
