@@ -57,17 +57,21 @@
       title: "Company Address",
       value: "韶关市浈江区产业转移工业园峰谷路10号内3号厂房",
     },
-    {
+    /* {
       title: "",
       value:
         "Factory Building No. 3, Inside No. 10 Fenggu Road, Industrial Transfer Park, Zhenjiang District, Shaoguan City",
-    },
+    }, */
     {
       title: "Contact Number",
       value: "0751-6528728",
     },
     {
       title: "Phone Number",
+      value: "+86-13826348348",
+    },
+    {
+      title: "",
       value: "+86-18023656583",
     },
     {

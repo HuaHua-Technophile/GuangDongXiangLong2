@@ -36,7 +36,7 @@
     </swiper-slide>
     <!-- 产品列表 -->
     <swiper-slide
-      v-for="i in productList"
+      v-for="(i, index) in productList"
       v-lazy:background-image="i.bg"
       class="bgimg-center-cover pt-0">
       <div
@@ -71,7 +71,9 @@
               class="w-100 h-100 rounded-5 shadow object-fit-cover"
               data-swiper-parallax="-200" />
             <div data-swiper-parallax="-300">
-              <p class="transition750 fw-bold fs-3 mt-3 pb-4">{{ j }}香精</p>
+              <p class="transition750 fw-bold fs-3 mt-3 pb-4">
+                {{ j }}<span v-if="index != 0">香精</span>
+              </p>
             </div>
           </swiper-slide>
         </swiper-container>
@@ -116,7 +118,7 @@
       initialize: false,
       title: "烟草类",
       bg: "/images/ProductList/ProductList2.webp",
-      item: ["烟膏", "烟油", "烟酊"],
+      item: ["烟草浸膏", "烟草净油", "烟草酊剂"],
     },
     {
       initialize: false,
