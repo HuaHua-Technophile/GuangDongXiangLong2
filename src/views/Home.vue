@@ -116,7 +116,7 @@
           data-swiper-parallax="-300">
           <div
             v-for="(i, index) in industryAndTechnology"
-            class="industryAndTechnologyIcon transition750 shadow bg-xlxl text-white d-flex align-items-center justify-content-center animate__animated animate__pulse animate__infinite"
+            class="industryAndTechnologyIcon transition1000 shadow bg-xlxl text-white d-flex align-items-center justify-content-center animate__animated animate__pulse animate__infinite"
             :class="[i.icon]"
             style="
               width: 16rem;
@@ -134,8 +134,8 @@
                 : '--animate-duration: 5s;',
             ]">
             <div
-              class="position-absolute fs-3 top-100 transition1000"
-              style="text-shadow: 0 0 3px rgba(0, 0, 0, 0.5); left: -10%">
+              class="position-absolute top-100 start-50 translate-middle-x transition1000 fs-3 text-nowrap mt-5"
+              style="text-shadow: 0 0 3px rgba(0, 0, 0, 0.5)">
               {{ i.title }}
             </div>
           </div>
@@ -164,125 +164,125 @@
   </VerticalParallaxSwiper>
 </template>
 <script lang="ts" setup>
-  import { RouterLink } from "vue-router";
-  import { SwiperContainer } from "swiper/element";
-  import { onMounted, ref } from "vue";
-  import mediaNews from "../data/MediaNews.json";
-  import companyNews from "../data/CompanyNews.json";
-  import { Swiper } from "swiper/types";
-  import companyData from "../data/companyData.json";
-  //首屏数据------------------
-  const firstSlide = [
-    {
-      title: "香韵缔造美味<br/>引领品质生活",
-      bg: "/images/Home/Home1.webp",
-    },
-    {
-      title: "全球化布局<br/>国际视野,多元化发展",
-      bg: "/images/Home/Home2.webp",
-    },
-    {
-      title: "创新驱动<br/>香龙研发实力的见证",
-      bg: "/images/Home/Home3.webp",
-    },
-  ];
-  const fadeChangeSwiper = ref<{ swiperContainer: SwiperContainer }>();
-  onMounted(() => {
-    fadeChangeSwiper.value?.swiperContainer.initialize();
-  });
-  // 获取全部新闻------------
-  // 媒体中心------------------
-  const allNews: {
-    id?: number;
-    url?: string;
-    img: string;
-    date: string;
-    title: string;
-    content: string[];
-  }[] = [...mediaNews.data, ...companyNews.data].sort((a, b) => {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
-    return dateB.getTime() - dateA.getTime();
-  });
+import { RouterLink } from "vue-router";
+import { SwiperContainer } from "swiper/element";
+import { onMounted, ref } from "vue";
+import mediaNews from "../data/MediaNews.json";
+import companyNews from "../data/CompanyNews.json";
+import { Swiper } from "swiper/types";
+import companyData from "../data/companyData.json";
+//首屏数据------------------
+const firstSlide = [
+  {
+    title: "香韵缔造美味<br/>引领品质生活",
+    bg: "/images/Home/Home1.webp",
+  },
+  {
+    title: "全球化布局<br/>国际视野,多元化发展",
+    bg: "/images/Home/Home2.webp",
+  },
+  {
+    title: "创新驱动<br/>香龙研发实力的见证",
+    bg: "/images/Home/Home3.webp",
+  },
+];
+const fadeChangeSwiper = ref<{ swiperContainer: SwiperContainer }>();
+onMounted(() => {
+  fadeChangeSwiper.value?.swiperContainer.initialize();
+});
+// 获取全部新闻------------
+// 媒体中心------------------
+const allNews: {
+  id?: number;
+  url?: string;
+  img: string;
+  date: string;
+  title: string;
+  content: string[];
+}[] = [...mediaNews.data, ...companyNews.data].sort((a, b) => {
+  const dateA = new Date(a.date);
+  const dateB = new Date(b.date);
+  return dateB.getTime() - dateA.getTime();
+});
 
-  // 月份转换-----------
-  const monthAbbreviations = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  const monthAbbreviation = (num: string) => {
-    const index = Number(num) - 1;
-    return index >= 0 && index < 12 ? monthAbbreviations[index] : "Invalid";
-  };
+// 月份转换-----------
+const monthAbbreviations = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+const monthAbbreviation = (num: string) => {
+  const index = Number(num) - 1;
+  return index >= 0 && index < 12 ? monthAbbreviations[index] : "Invalid";
+};
 
-  // 产业技术--------------
-  const industryAndTechnology = [
-    {
-      icon: "iconfont icon-yinliao",
-      title: "食用香精",
-    },
-    {
-      icon: "iconfont icon-yancaoyanju",
-      title: "烟用香精",
-    },
-    {
-      icon: "iconfont icon-a-3yongliao",
-      title: "食品配料",
-    },
-  ];
+// 产业技术--------------
+const industryAndTechnology = [
+  {
+    icon: "iconfont icon-yinliao",
+    title: "食用香精",
+  },
+  {
+    icon: "iconfont icon-yancaoyanju",
+    title: "烟用香精",
+  },
+  {
+    icon: "iconfont icon-a-3yongliao",
+    title: "食品配料",
+  },
+];
 
-  // 企业概览的数据countUp--------------
-  const CountUpDataEl = ref();
-  const swiperOut = ref<{ swiperOut: SwiperContainer }>();
-  const SwiperOutSlideChange = (e: CustomEvent<[Swiper]>) => {
-    // onSlideChange事件会被内层swiper实例触发，莫名其妙？？？，且无法通过event.stopPropagation组织冒泡.于是在最外层再做一次判断来自哪个实例触发
-    if (
-      e.detail[0] == swiperOut.value?.swiperOut.swiper &&
-      e.detail[0].activeIndex == 3
-    )
-      CountUpDataEl.value.startCountUp();
-  };
+// 企业概览的数据countUp--------------
+const CountUpDataEl = ref();
+const swiperOut = ref<{ swiperOut: SwiperContainer }>();
+const SwiperOutSlideChange = (e: CustomEvent<[Swiper]>) => {
+  // onSlideChange事件会被内层swiper实例触发，莫名其妙？？？，且无法通过event.stopPropagation组织冒泡.于是在最外层再做一次判断来自哪个实例触发
+  if (
+    e.detail[0] == swiperOut.value?.swiperOut.swiper &&
+    e.detail[0].activeIndex == 3
+  )
+    CountUpDataEl.value.startCountUp();
+};
 </script>
 <style lang="scss" scoped>
-  .SlideTitle {
-    & {
-      text-indent: -6em;
+.SlideTitle {
+  & {
+    text-indent: -6em;
+  }
+  &::first-letter {
+    font-size: 2em; //两倍原本大小
+    margin-right: 1rem;
+  }
+}
+.MediaNews {
+  a:hover {
+    color: var(--bs-xlxl) !important;
+    .title {
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+      font-size: 1.15rem !important;
     }
-    &::first-letter {
-      font-size: 2em; //两倍原本大小
-      margin-right: 1rem;
-    }
   }
-  .MediaNews {
-    a:hover {
-      color: var(--bs-xlxl) !important;
-      .title {
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-        font-size: 1.15rem !important;
-      }
-    }
-  }
-  .mediaBigImg:hover {
-    transform: scale(1.03);
-    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.5) !important;
-  }
-  .dividing-line {
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px dashed rgba(0, 0, 0, 0.3);
-  }
-  .industryAndTechnologyIcon:hover {
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5) !important;
-    border-width: 1.5rem !important;
-  }
+}
+.mediaBigImg:hover {
+  transform: scale(1.03);
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.5) !important;
+}
+.dividing-line {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.3);
+}
+.industryAndTechnologyIcon:hover {
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5) !important;
+  border-width: 1.5rem !important;
+}
 </style>

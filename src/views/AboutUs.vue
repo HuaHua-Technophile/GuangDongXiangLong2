@@ -1,7 +1,6 @@
 <template>
   <VerticalParallaxSwiper
     ref="swiperOut"
-    :centeredSlides="true"
     :swiperslidechange="SwiperOutSlideChange">
     <!-- 首屏大图 -->
     <swiper-slide
@@ -63,7 +62,8 @@
       </div>
     </swiper-slide>
     <!-- 又一个CountUdp动画 -->
-    <swiper-slide class="h-auto mb-5">
+    <swiper-slide
+      class="h-100 mb-5 d-flex justify-content-center align-items-center">
       <CountUpData
         ref="CountUpDataEl"
         :data="companyData.arr"
@@ -142,115 +142,115 @@
   </VerticalParallaxSwiper>
 </template>
 <script lang="ts" setup>
-  import { SwiperContainer } from "swiper/element";
-  import companyData from "../data/companyData.json";
-  import { ref } from "vue";
-  import { Swiper } from "swiper/types";
+import { SwiperContainer } from "swiper/element";
+import companyData from "../data/companyData.json";
+import { ref } from "vue";
+import { Swiper } from "swiper/types";
 
-  const arr = ["香龙香料", "发展与战略", "企业文化"];
+const arr = ["香龙香料", "发展与战略", "企业文化"];
 
-  const swiperOut = ref<{ swiperOut: SwiperContainer }>();
-  const slideChange = (index: number) => {
-    index > 1 ? (index += 1) : null;
-    swiperOut.value?.swiperOut.swiper.slideTo(index);
-  };
+const swiperOut = ref<{ swiperOut: SwiperContainer }>();
+const slideChange = (index: number) => {
+  index > 1 ? (index += 1) : null;
+  swiperOut.value?.swiperOut.swiper.slideTo(index);
+};
 
-  // 数值动画----------------
-  const CountUpDataEl = ref();
+// 数值动画----------------
+const CountUpDataEl = ref();
 
-  const SwiperOutSlideChange = (e: CustomEvent<[Swiper]>) => {
-    // onSlideChange事件会被内层swiper实例触发，莫名其妙？？？，且无法通过event.stopPropagation组织冒泡.于是在最外层再做一次判断来自哪个实例触发
-    if (
-      e.detail[0] == swiperOut.value?.swiperOut.swiper &&
-      e.detail[0].activeIndex == 2
-    )
-      CountUpDataEl.value.startCountUp();
-  };
-  // 发展与战略-------------
-  const devStrategyText = [
-    {
-      title: "科技创新",
-      content:
-        "香龙香料将继续加强研发投入，发挥各研发中心的协同效应，加速新技术的探索与应用，推进技术成果的产业化落地。公司高度重视知识产权保护，致力于打造坚固的技术壁垒，并建立国际化研发管理体系，吸引全球优秀技术人才，为公司持续创新提供强大动力。",
-    },
-    {
-      title: "绿色发展",
-      content:
-        "公司将在可持续发展和环境保护方面下更大功夫。通过推广绿色生产技术和可再生资源的利用，香龙香料致力于打造环保型企业，提供更加健康、天然的香精香料产品。公司将在绿色产业方面不断探索，为社会和环境带来更多积极影响。",
-    },
-    {
-      title: "全球市场",
-      content:
-        "香龙香料将继续扩大在全球市场的布局，特别是东南亚、欧美等地区。公司将把握海外市场的增长机会，优化国际业务布局，积累海外拓展经验，提升全球竞争力。未来，香龙香料将加快产业链的国际化发展，构建全球化的市场网络。",
-    },
-    {
-      title: "管理优化",
-      content:
-        "公司将持续优化内部管理，通过数字化和信息化手段提高运营效率。香龙香料致力于实现全面的数字化转型，提升管理水平和资源整合能力，促进企业规范化、透明化运作。通过数字化工具，公司将提升决策的科学性与效率，为长期发展打下坚实基础。",
-    },
-    {
-      title: "客户导向",
-      content:
-        "香龙香料将始终以客户需求为导向，提供优质的产品与服务。公司将深入了解市场动态和客户需求，创新产品研发，提升服务质量。通过定制化解决方案和快捷的响应机制，香龙香料将致力于与客户建立长期合作关系，共同推动行业发展。",
-    },
-    {
-      title: "人才培养",
-      content:
-        "公司视人才为最宝贵的资产，注重员工的培养与发展。香龙香料将通过多种途径提高员工的专业素质和综合能力，营造良好的企业文化，激发员工的创新精神和工作热情。通过人才战略的实施，公司将确保持续的竞争优势和长远的发展动力。",
-    },
-  ];
+const SwiperOutSlideChange = (e: CustomEvent<[Swiper]>) => {
+  // onSlideChange事件会被内层swiper实例触发，莫名其妙？？？，且无法通过event.stopPropagation组织冒泡.于是在最外层再做一次判断来自哪个实例触发
+  if (
+    e.detail[0] == swiperOut.value?.swiperOut.swiper &&
+    e.detail[0].activeIndex == 2
+  )
+    CountUpDataEl.value.startCountUp();
+};
+// 发展与战略-------------
+const devStrategyText = [
+  {
+    title: "科技创新",
+    content:
+      "香龙香料将继续加强研发投入，发挥各研发中心的协同效应，加速新技术的探索与应用，推进技术成果的产业化落地。公司高度重视知识产权保护，致力于打造坚固的技术壁垒，并建立国际化研发管理体系，吸引全球优秀技术人才，为公司持续创新提供强大动力。",
+  },
+  {
+    title: "绿色发展",
+    content:
+      "公司将在可持续发展和环境保护方面下更大功夫。通过推广绿色生产技术和可再生资源的利用，香龙香料致力于打造环保型企业，提供更加健康、天然的香精香料产品。公司将在绿色产业方面不断探索，为社会和环境带来更多积极影响。",
+  },
+  {
+    title: "全球市场",
+    content:
+      "香龙香料将继续扩大在全球市场的布局，特别是东南亚、欧美等地区。公司将把握海外市场的增长机会，优化国际业务布局，积累海外拓展经验，提升全球竞争力。未来，香龙香料将加快产业链的国际化发展，构建全球化的市场网络。",
+  },
+  {
+    title: "管理优化",
+    content:
+      "公司将持续优化内部管理，通过数字化和信息化手段提高运营效率。香龙香料致力于实现全面的数字化转型，提升管理水平和资源整合能力，促进企业规范化、透明化运作。通过数字化工具，公司将提升决策的科学性与效率，为长期发展打下坚实基础。",
+  },
+  {
+    title: "客户导向",
+    content:
+      "香龙香料将始终以客户需求为导向，提供优质的产品与服务。公司将深入了解市场动态和客户需求，创新产品研发，提升服务质量。通过定制化解决方案和快捷的响应机制，香龙香料将致力于与客户建立长期合作关系，共同推动行业发展。",
+  },
+  {
+    title: "人才培养",
+    content:
+      "公司视人才为最宝贵的资产，注重员工的培养与发展。香龙香料将通过多种途径提高员工的专业素质和综合能力，营造良好的企业文化，激发员工的创新精神和工作热情。通过人才战略的实施，公司将确保持续的竞争优势和长远的发展动力。",
+  },
+];
 
-  // 企业文化-----------------
-  const cultureText = [
-    {
-      icon: "iconfont icon-qiyeyuanjing",
-      title: "愿景",
-      content: "香韵缔造美味",
-    },
-    {
-      icon: "iconfont icon-shiming",
-      title: "使命",
-      content: "创新香料科技，提升生活品质",
-    },
-    {
-      icon: "iconfont icon-wangzhantubiaoji2_huaban1fuben21",
-      title: "核心价值观",
-      content: "诚信、创新、卓越、共赢",
-    },
-    {
-      icon: "iconfont icon-qiyejingshen",
-      title: "企业精神",
-      content: "匠心质造，追求卓越",
-    },
-    {
-      icon: "iconfont icon-rencaifuwu",
-      title: "人才理念",
-      content: "尊重人才，培养专业，激发潜能",
-    },
-  ];
+// 企业文化-----------------
+const cultureText = [
+  {
+    icon: "iconfont icon-qiyeyuanjing",
+    title: "愿景",
+    content: "香韵缔造美味",
+  },
+  {
+    icon: "iconfont icon-shiming",
+    title: "使命",
+    content: "创新香料科技，提升生活品质",
+  },
+  {
+    icon: "iconfont icon-wangzhantubiaoji2_huaban1fuben21",
+    title: "核心价值观",
+    content: "诚信、创新、卓越、共赢",
+  },
+  {
+    icon: "iconfont icon-qiyejingshen",
+    title: "企业精神",
+    content: "匠心质造，追求卓越",
+  },
+  {
+    icon: "iconfont icon-rencaifuwu",
+    title: "人才理念",
+    content: "尊重人才，培养专业，激发潜能",
+  },
+];
 </script>
 <style lang="scss" scoped>
-  .slideChangeBtn:hover {
-    transform: translate(0px, -5px);
+.slideChangeBtn:hover {
+  transform: translate(0px, -5px);
+}
+.company-profile-img:hover {
+  transform: scale(1.03);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5) !important;
+}
+@keyframes rotateBall {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
-  .company-profile-img:hover {
-    transform: scale(1.03);
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5) !important;
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
-  @keyframes rotateBall {
-    0% {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    100% {
-      transform: translate(-50%, -50%) rotate(360deg);
-    }
-  }
-  .rotateBall {
-    animation: rotateBall 15s linear infinite;
-  }
+}
+.rotateBall {
+  animation: rotateBall 15s linear infinite;
+}
 
-  .cultureIcon:hover {
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5) !important;
-    border-width: 0.9rem !important;
-  }
+.cultureIcon:hover {
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5) !important;
+  border-width: 0.9rem !important;
+}
 </style>

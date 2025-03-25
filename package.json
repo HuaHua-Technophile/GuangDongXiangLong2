@@ -13,20 +13,20 @@
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "countup.js": "^2.8.0",
-    "element-plus": "^2.8.6",
-    "swiper": "^11.1.14",
-    "vue": "^3.5.12",
+    "element-plus": "^2.9.7",
+    "swiper": "^11.2.6",
+    "vue": "^3.5.13",
     "vue-lazyload": "^3.0.0",
-    "vue-router": "^4.4.5"
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.1.4",
-    "@vue/tsconfig": "^0.5.1",
-    "sass": "^1.80.5",
-    "typescript": "^5.6.3",
-    "unplugin-auto-import": "^0.18.3",
-    "unplugin-vue-components": "^0.27.4",
-    "vite": "^5.4.10",
-    "vue-tsc": "^2.1.10"
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vue/tsconfig": "^0.7.0",
+    "sass": "^1.86.0",
+    "typescript": "^5.8.2",
+    "unplugin-auto-import": "^19.1.1",
+    "unplugin-vue-components": "^28.4.1",
+    "vite": "^6.2.3",
+    "vue-tsc": "^2.2.8"
   }
 }

@@ -19,19 +19,19 @@
   </swiper-container>
 </template>
 <script lang="ts" setup>
-  import type { SwiperContainer } from "swiper/element";
-  import { onMounted, onUnmounted, ref } from "vue";
-  // 滑动事件-----------------
-  // 滑动事件-----------------
-  const props = defineProps<{ swiperslidechange?: Function }>();
-  // 延迟DOM加载后实例化------------
-  const swiperOut = ref<SwiperContainer>();
-  defineExpose({ swiperOut });
+import type { SwiperContainer } from "swiper/element";
+import { onMounted, onUnmounted, ref } from "vue";
+// 滑动事件-----------------
+// 滑动事件-----------------
+const props = defineProps<{ swiperslidechange?: Function }>();
+// 延迟DOM加载后实例化------------
+const swiperOut = ref<SwiperContainer>();
+defineExpose({ swiperOut });
 
-  onMounted(() => {
-    Object.assign(swiperOut.value!, {
-      injectStyles: [
-        `:host {
+onMounted(() => {
+  Object.assign(swiperOut.value!, {
+    injectStyles: [
+      `:host {
           --swiper-theme-color: var(--bs-xlxl);
         }
         .swiper-vertical>.swiper-pagination-progressbar{
@@ -39,11 +39,11 @@
           left:calc(100% - var(--swiper-pagination-progressbar-size, 4px));
         }
         `,
-      ],
-    });
-    swiperOut.value?.initialize();
+    ],
   });
-  onUnmounted(() => {
-    swiperOut.value?.swiper.destroy();
-  });
+  swiperOut.value?.initialize();
+});
+onUnmounted(() => {
+  swiperOut.value?.swiper.destroy();
+});
 </script>
