@@ -8,8 +8,8 @@
         <span
           class="fs-1"
           style="font-family: QinLiuLiShu; letter-spacing: 13px">
-          廣東香龍香料</span
-        >
+          廣東香龍香料
+        </span>
       </div>
       <div class="d-flex align-items-center mb-2">
         <i class="bi bi-geo-alt me-2"></i>
@@ -29,14 +29,14 @@
   <div class="bg-xlxl text-white py-4">
     <div class="container-sm d-flex justify-content-between align-items-center">
       <div>
-        版权所有：广东香龙香料有限公司
+        开发委托：辰星信息技术有限公司
         <a
           href="https://beian.miit.gov.cn/#/Integrated/index"
           target="_blank"
           rel="noopener noreferrer"
-          class="ms-4 text-white"
-          >粤ICP备2024274959号-1</a
-        >
+          class="ms-4 text-white">
+          粤ICP备2024274959号-1
+        </a>
       </div>
       <!-- 微博/微信 LOGO -->
       <div>
@@ -50,12 +50,12 @@
   </div>
 </template>
 <script lang="ts" setup>
-  const contact = [
-    {
-      icon: "bi bi-sina-weibo",
-    },
-    {
-      icon: "bi bi-wechat",
-    },
-  ];
+const contact = [
+  {
+    icon: "bi bi-sina-weibo",
+  },
+  {
+    icon: "bi bi-wechat",
+  },
+];
 </script>
